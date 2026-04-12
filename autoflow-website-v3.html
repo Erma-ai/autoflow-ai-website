@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AutoFlow AI — Business Process Automation</title>
+<meta name="description" content="We automate the repetitive processes slowing your business down. Hotels, clinics, real estate, law firms and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  --black:   #080808;
+  --black2:  #0e0e0e;
+  --black3:  #141414;
+  --black4:  #1c1c1c;
+  --white:   #ffffff;
+  --off:     #f5f3ee;
+  --t1:      #ffffff;
+  --t2:      #888888;
+  --t3:      #444444;
+  --gold:    #c9a55a;
+  --gold-lt: #e2c07a;
+  --gold-dk: #9e7e3a;
+  --gold-gl: rgba(201,165,90,0.10);
+  --gold-sf: rgba(201,165,90,0.05);
+  --gold-bd: rgba(201,165,90,0.20);
+  --bdr:     rgba(255,255,255,0.07);
+  --bdr2:    rgba(255,255,255,0.12);
+  --r:       4px;
+  --rl:      8px;
+}
+
+body{background:var(--black);color:var(--t1);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.1;letter-spacing:-0.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 36px}
+
+/* LABEL */
+.lbl{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.lbl::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0}
+
+/* DIVIDER */
+.rule{width:40px;height:1px;background:var(--gold);margin:0 auto}
+.rule-l{width:40px;height:1px;background:var(--gold)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all .25s}
+.btn-p{background:var(--gold);color:#000}
+.btn-p:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,165,90,.25)}
+.btn-o{background:transparent;color:var(--t1);border:1px solid var(--bdr2)}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 36px;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
+.nav-i{max-width:1100px;margin:0 auto;height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:.02em;color:var(--white)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-r{display:flex;align-items:center;gap:24px}
+.nav-r a.sm{font-size:12px;color:var(--t3);transition:color .2s;letter-spacing:.02em}
+.nav-r a.sm:hover{color:var(--gold)}
+.mbtn{display:none;background:none;border:1px solid var(--bdr2);padding:8px 12px;color:var(--t1);cursor:pointer;font-size:16px}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;background:var(--black2);border-bottom:1px solid var(--bdr);padding:24px 36px;z-index:199}
+.mob.on{display:block}
+.mob a{display:block;padding:14px 0;border-bottom:1px solid var(--bdr);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--t3)}
+.mob a:last-child{border:none}
+.mob a:hover{color:var(--gold)}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden;background:var(--black)}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,black,transparent)}
+.hero-glow{position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(201,165,90,.08) 0%,transparent 65%);pointer-events:none}
+.hero-in{position:relative;z-index:2;text-align:center;max-width:820px;margin:0 auto;padding:100px 0 80px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:40px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:24px;height:1px;background:var(--gold)}
+h1.hero-h{font-size:clamp(40px,6vw,76px);font-weight:700;margin-bottom:10px;color:var(--white);letter-spacing:-0.02em}
+h1.hero-h em{font-style:italic;color:var(--gold)}
+.hero-rule{width:48px;height:1px;background:var(--gold);margin:28px auto}
+.hero-sub{font-size:clamp(15px,1.6vw,17px);color:var(--t2);max-width:560px;margin:0 auto 48px;font-weight:300;line-height:1.85;letter-spacing:.01em}
+.hero-btns{display:flex;flex-direction:column;align-items:center;gap:16px}
+.hero-note{font-size:12px;color:var(--t3);letter-spacing:.04em}
+.hero-note em{font-style:normal;color:var(--t2)}
+
+/* STRIP */
+.strip{padding:20px 0;background:var(--black2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);overflow:hidden}
+.strip-inner{display:flex;gap:56px;align-items:center;white-space:nowrap;animation:scroll 28s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-item{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);flex-shrink:0}
+.strip-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* PROBLEM */
+#problem{padding:120px 0;background:var(--black);border-top:1px solid var(--bdr)}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.prob-h{font-size:clamp(26px,2.8vw,42px);margin-bottom:32px;font-weight:600}
+.prob-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.prob-list li{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--bdr);font-size:14px;color:var(--t2);font-weight:400;letter-spacing:.01em;transition:color .2s}
+.prob-list li:hover{color:var(--t1)}
+.prob-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.prob-close{margin-top:32px;padding:24px 28px;border-left:1px solid var(--gold);background:var(--gold-sf)}
+.prob-close strong{color:var(--t1);font-weight:600;font-family:'Playfair Display',serif;font-size:17px;display:block;margin-bottom:6px}
+.prob-close span{font-size:14px;color:var(--t2)}
+.stat-box{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr)}
+.stat-item{padding:32px 36px;border-bottom:1px solid var(--bdr);transition:background .2s}
+.stat-item:last-child{border-bottom:none}
+.stat-item:hover{background:var(--black3)}
+.stat-n{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-0.02em}
+.stat-d{font-size:12.5px;color:var(--t3);margin-top:6px;letter-spacing:.02em;font-weight:400}
+
+/* HOW IT WORKS */
+#method{padding:120px 0;background:var(--black2);border-top:1px solid var(--bdr)}
+.sec-hd{text-align:center;margin-bottom:72px}
+.sec-hd h2{font-size:clamp(28px,3vw,46px);margin-bottom:20px;font-weight:600}
+.sec-hd p{font-size:15px;color:var(--t2);max-width:440px;margin:20px auto 0;font-weight:300;line-height:1.85;letter-spacing:.01em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.step{background:var(--black2);padding:44px 36px;position:relative;transition:background .3s}
+.step:hover{background:var(--black3)}
+.step-num{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--black4);line-height:1;margin-bottom:24px;-webkit-text-stroke:1px var(--bdr2)}
+.tag{display:inline-block;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-bd);padding:4px 12px;margin-bottom:18px;background:var(--gold-sf)}
+.step h3{font-size:20px;margin-bottom:14px;font-weight:600}
+.step p{font-size:13.5px;color:var(--t2);line-height:1.8;font-weight:300}
+.callout{margin-top:20px;padding:16px 18px;border-left:1px solid var(--gold);background:var(--gold-sf);font-size:13px;color:var(--t2);line-height:1.7}
+.callout strong{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;font-size:14px}
+
+/* SERVICES */
+#services{padding:120px 0;background:var(--black);border-top:1px solid var(--bdr)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr);margin-bottom:40px}
+.svc{background:var(--black);padding:36px 32px;transition:background .25s;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;top:0;left:0;width:1px;height:0;background:var(--gold);transition:height .35s}
+.svc:hover{background:var(--black2)}
+.svc:hover::before{height:100%}
+.svc-ico{font-size:20px;margin-bottom:16px;display:block;opacity:.7}
+.svc h3{font-size:16px;margin-bottom:10px;font-weight:600;letter-spacing:-.01em}
+.svc p{font-size:12.5px;color:var(--t3);line-height:1.75;font-weight:400}
+.svc-cta{text-align:center;font-size:14px;color:var(--t2)}
+.svc-cta a{color:var(--gold);font-weight:500;border-bottom:1px solid var(--gold-bd);padding-bottom:1px;transition:border-color .2s}
+.svc-cta a:hover{border-color:var(--gold)}
+
+/* INDUSTRIES */
+#industries{padding:120px 0;background:var(--black2);border-top:1px solid var(--bdr)}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.ind{background:var(--black2);padding:22px 24px;display:flex;align-items:center;gap:14px;font-size:13.5px;font-weight:400;color:var(--t3);transition:all .2s;letter-spacing:.01em}
+.ind:hover{background:var(--black3);color:var(--t1)}
+.ind-ico{font-size:16px;flex-shrink:0;opacity:.6}
+.ind-o{grid-column:1 / -1;background:var(--black3);color:var(--gold);justify-content:center;font-weight:500;letter-spacing:.04em;padding:26px}
+.ind-o:hover{background:var(--gold);color:#000}
+.ind-o a{color:inherit;display:flex;align-items:center;gap:10px}
+
+/* CASE STUDY */
+#results{padding:120px 0;background:var(--black);border-top:1px solid var(--bdr)}
+.cs{max-width:800px;margin:0 auto}
+.cs-card{border:1px solid var(--bdr);padding:60px 56px;position:relative;background:var(--black)}
+.cs-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent)}
+.cs-story{font-size:16px;color:var(--t2);line-height:1.9;margin-bottom:40px;font-weight:300;letter-spacing:.01em}
+.cs-res{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.res-item{padding:28px 24px;background:var(--black2);text-align:center}
+.res-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-0.02em}
+.res-l{font-size:11.5px;color:var(--t3);margin-top:7px;letter-spacing:.04em;text-transform:uppercase}
+.vid{margin-top:32px;border:1px dashed var(--bdr2);padding:28px;text-align:center;color:var(--t3);font-size:13px}
+.vid strong{display:block;color:var(--t2);margin-bottom:5px;font-size:14px;font-family:'Playfair Display',serif}
+
+/* TESTIMONIAL */
+#testi{padding:100px 0;background:var(--black2);border-top:1px solid var(--bdr)}
+.tcard{max-width:680px;margin:0 auto;text-align:center}
+.tquote{font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,26px);font-weight:400;font-style:italic;line-height:1.55;color:var(--t1);margin-bottom:36px}
+.tquote::before{content:'\201C';color:var(--gold);font-size:60px;line-height:.5;display:block;margin-bottom:20px;opacity:.6}
+.tauth{display:flex;align-items:center;justify-content:center;gap:16px}
+.tline{width:32px;height:1px;background:var(--gold)}
+.tauth-info strong{display:block;font-size:13px;font-weight:500;color:var(--t2);letter-spacing:.06em;text-transform:uppercase}
+
+/* FAQ */
+#faq{padding:120px 0;background:var(--black);border-top:1px solid var(--bdr)}
+.faq-l{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr)}
+.fi{border-bottom:1px solid var(--bdr);transition:background .2s}
+.fi:last-child{border-bottom:none}
+.fi.on{background:var(--black2)}
+.fq{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 28px;cursor:pointer;font-weight:500;font-size:14px;user-select:none;letter-spacing:.01em}
+.fi-ico{width:22px;height:22px;border:1px solid var(--bdr2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;flex-shrink:0;transition:transform .3s,border-color .2s}
+.fi.on .fi-ico{transform:rotate(45deg);border-color:var(--gold)}
+.fa{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 28px;color:var(--t2);font-size:13.5px;line-height:1.8;font-weight:300}
+.fi.on .fa{max-height:200px;padding:0 28px 22px}
+
+/* ABOUT */
+#about{padding:120px 0;background:var(--black2);border-top:1px solid var(--bdr)}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.ab-text h2{font-size:clamp(26px,2.8vw,40px);margin-bottom:24px;font-weight:600}
+.ab-text p{color:var(--t2);font-size:15px;line-height:1.9;font-weight:300;letter-spacing:.01em}
+.ab-ph{background:var(--black);border:1px solid var(--bdr);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--t3);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.ab-ph span{font-size:28px;opacity:.3}
+
+/* CONTACT */
+#contact{padding:120px 0;background:var(--black);border-top:1px solid var(--bdr)}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.con-l h2{font-size:clamp(26px,2.8vw,40px);margin-bottom:16px;font-weight:600}
+.con-l p{color:var(--t2);font-size:15px;line-height:1.85;margin-bottom:36px;font-weight:300;letter-spacing:.01em}
+.con-opts{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr)}
+.copt{display:flex;align-items:center;gap:14px;padding:17px 22px;border-bottom:1px solid var(--bdr);font-size:13.5px;font-weight:400;color:var(--t3);transition:all .2s;text-decoration:none;letter-spacing:.01em}
+.copt:last-child{border-bottom:none}
+.copt:hover{background:var(--black2);color:var(--gold);padding-left:28px}
+.copt-ico{font-size:16px;flex-shrink:0}
+.cform{background:var(--black2);border:1px solid var(--bdr)}
+.cform-head{padding:28px 32px;border-bottom:1px solid var(--bdr)}
+.cform-head h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600}
+.cform-body{padding:28px 32px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:10px;font-weight:600;color:var(--t3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.16em}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--black);border:1px solid var(--bdr2);padding:12px 16px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg textarea{resize:vertical;min-height:90px}
+.fg select option{background:var(--black2)}
+.fsub{width:100%;padding:15px;font-size:12px;letter-spacing:.1em}
+.fnote{text-align:center;font-size:11px;color:var(--t3);margin-top:14px;letter-spacing:.04em}
+.fsucc{display:none;text-align:center;padding:48px 24px}
+.fsucc.on{display:block}
+.fsucc-ico{font-size:40px;margin-bottom:16px}
+.fsucc h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px}
+.fsucc p{color:var(--t2);font-size:14px;font-weight:300}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid var(--bdr);padding:36px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.flogo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700}
+.flogo em{font-style:normal;color:var(--gold)}
+.fcon{display:flex;gap:28px;font-size:12px;color:var(--t3);letter-spacing:.03em}
+.fcon a:hover{color:var(--gold)}
+.fcopy{font-size:11.5px;color:var(--t3);letter-spacing:.04em}
+
+/* WA */
+.wa{position:fixed;bottom:28px;right:28px;z-index:150;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s;text-decoration:none}
+.wa:hover{transform:scale(1.1)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-r a.sm{display:none}
+  .mbtn{display:block}
+  .prob-grid,.ab-grid,.con-grid{grid-template-columns:1fr;gap:48px}
+  .steps{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .ind-grid{grid-template-columns:1fr 1fr}
+  .cs-res{grid-template-columns:1fr}
+  .cs-card{padding:36px 28px}
+  .cform-body{padding:24px}
+  .cform-head{padding:24px}
+}
+@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .ind-grid{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-i">
+    <div class="logo">AutoFlow<em>AI</em></div>
+    <ul class="nav-links">
+      <li><a href="#method">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-r">
+      <a class="sm" href="mailto:contact@autoflow.ai">contact@autoflow.ai</a>
+      <a class="sm" href="https://wa.me/355000000000">WhatsApp</a>
+      <a href="#contact" class="btn btn-p" style="padding:10px 22px;font-size:11px">Book a review</a>
+    </div>
+    <button class="mbtn" onclick="document.getElementById('mob').classList.toggle('on')">☰</button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <a href="#method" onclick="document.getElementById('mob').classList.remove('on')">How it works</a>
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('on')">Services</a>
+  <a href="#industries" onclick="document.getElementById('mob').classList.remove('on')">Industries</a>
+  <a href="#about" onclick="document.getElementById('mob').classList.remove('on')">About</a>
+  <a href="#contact" onclick="document.getElementById('mob').classList.remove('on')">Book free process review →</a>
+  <a href="mailto:contact@autoflow.ai">contact@autoflow.ai</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="hero-eyebrow">Now serving Europe &amp; the USA</div>
+      <h1 class="hero-h">Your business, running<br>at <em>full capacity</em> —<br>with half the manual effort.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">From customer replies to database updates, appointment flows to invoice follow-ups, inventory alerts to staff coordination — if your team does it the same way every day, we automate it.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-p" style="font-size:12px;padding:16px 40px;letter-spacing:.1em">Book your free process review</a>
+        <p class="hero-note">Works for <em>hotels, clinics, retail, real estate, restaurants, logistics, law firms, construction,</em> and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item"><span class="strip-dot"></span>Customer Communication</span>
+    <span class="strip-item"><span class="strip-dot"></span>Database Automation</span>
+    <span class="strip-item"><span class="strip-dot"></span>Invoice Follow-ups</span>
+    <span class="strip-item"><span class="strip-dot"></span>Lead Qualification</span>
+    <span class="strip-item"><span class="strip-dot"></span>Staff Coordination</span>
+    <span class="strip-item"><span class="strip-dot"></span>Booking Flows</span>
+    <span class="strip-item"><span class="strip-dot"></span>Review Collection</span>
+    <span class="strip-item"><span class="strip-dot"></span>Onboarding Sequences</span>
+    <!-- duplicate for seamless loop -->
+    <span class="strip-item"><span class="strip-dot"></span>Customer Communication</span>
+    <span class="strip-item"><span class="strip-dot"></span>Database Automation</span>
+    <span class="strip-item"><span class="strip-dot"></span>Invoice Follow-ups</span>
+    <span class="strip-item"><span class="strip-dot"></span>Lead Qualification</span>
+    <span class="strip-item"><span class="strip-dot"></span>Staff Coordination</span>
+    <span class="strip-item"><span class="strip-dot"></span>Booking Flows</span>
+    <span class="strip-item"><span class="strip-dot"></span>Review Collection</span>
+    <span class="strip-item"><span class="strip-dot"></span>Onboarding Sequences</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="prob-grid">
+      <div class="rv">
+        <div class="lbl">The real cost</div>
+        <h2 class="prob-h">Your team is spending hours every day on tasks that should take seconds.</h2>
+        <ul class="prob-list">
+          <li>Answering the same customer questions over and over</li>
+          <li>Entering data by hand into spreadsheets and systems</li>
+          <li>Chasing unpaid invoices and waiting for replies</li>
+          <li>Sending reminders that should send themselves</li>
+          <li>Updating records after every sale, booking, or call</li>
+          <li>Coordinating staff, suppliers, and schedules manually</li>
+        </ul>
+        <div class="prob-close">
+          <strong>This is not a people problem. It is a process problem.</strong>
+          <span>And every one of these can be automated.</span>
+        </div>
+      </div>
+      <div class="stat-box rv">
+        <div class="stat-item"><div class="stat-n">3 hrs</div><div class="stat-d">Average time saved daily per client</div></div>
+        <div class="stat-item"><div class="stat-n">8 sec</div><div class="stat-d">Average response time after automation</div></div>
+        <div class="stat-item"><div class="stat-n">18%</div><div class="stat-d">Average booking increase in month one</div></div>
+        <div class="stat-item"><div class="stat-n">€400+</div><div class="stat-d">Weekly loss from just 5 missed bookings</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="method">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lbl">Our method</div>
+      <h2>How it works</h2>
+      <div class="rule"></div>
+      <p>Process experts first, builders second. Every engagement starts with understanding — not technology.</p>
+    </div>
+    <div class="steps rv">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="tag">Free — no obligation</div>
+        <h3>We map your operation</h3>
+        <p>We do not start by talking about technology. We start by understanding your business. We ask you to walk us through a normal working day — what your team does, in what order, how long each task takes, and where things slow down or get missed. We map every process, every handoff, every repetitive task.</p>
+        <div class="callout"><strong>We document everything.</strong> Every client receives a written process map before we build a single automation — so you always know exactly what the system does and why.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="tag">100+ scenarios tested</div>
+        <h3>We build the system</h3>
+        <p>We connect the tools you already use and add AI intelligence on top. No new software for your team to learn. Nothing changes on their side — the work simply starts happening automatically.</p>
+        <div class="callout"><strong>Tested across 100+ real scenarios</strong> before anything goes live. If something needs fixing after launch, you call us and we fix it the same day.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="tag">Monthly maintenance included</div>
+        <h3>It runs forever</h3>
+        <p>The system goes live. You pay a monthly maintenance fee. We monitor it, update it when needed, and improve it over time. Your team focuses on the work that only humans can do — the work that actually grows your business.</p>
+        <div class="callout"><strong>Month-to-month.</strong> Cancel any time with 30 days notice. No penalties, no long contracts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lbl">What we automate</div>
+      <h2>We automate every part of your operation</h2>
+      <div class="rule"></div>
+      <p>Not just messages. Every repetitive process your team touches.</p>
+    </div>
+    <div class="svc-grid rv">
+      <div class="svc"><span class="svc-ico">💬</span><h3>Customer Communication</h3><p>Instant replies · reminders · review collection · follow-ups · complaint handling · multi-language responses</p></div>
+      <div class="svc"><span class="svc-ico">🗂️</span><h3>Database &amp; Records</h3><p>Auto data entry · CRM updates · new contact creation · file organisation · spreadsheet population from any source</p></div>
+      <div class="svc"><span class="svc-ico">📈</span><h3>Sales &amp; Leads</h3><p>Lead capture · qualification · follow-up sequences · booking flows · proposal sending · pipeline updates</p></div>
+      <div class="svc"><span class="svc-ico">🧾</span><h3>Finance &amp; Admin</h3><p>Invoice reminders · payment confirmations · expense logging · supplier follow-ups · contract chasing</p></div>
+      <div class="svc"><span class="svc-ico">⚙️</span><h3>Operations &amp; Coordination</h3><p>Staff scheduling alerts · inventory notifications · task assignment · internal reporting · shift handover notes</p></div>
+      <div class="svc"><span class="svc-ico">🤝</span><h3>Customer Onboarding</h3><p>Welcome sequences · document collection · intake forms · account setup flows · orientation emails</p></div>
+    </div>
+    <div class="svc-cta rv"><p>Not sure which one you need? <a href="#contact">That is what the process review is for →</a></p></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lbl">Who we work with</div>
+      <h2>See yourself here?</h2>
+      <div class="rule"></div>
+      <p>If your team repeats a process every day, we can probably automate it.</p>
+    </div>
+    <div class="ind-grid rv">
+      <div class="ind"><span class="ind-ico">🏨</span>Hotels &amp; Hospitality</div>
+      <div class="ind"><span class="ind-ico">🦷</span>Dental &amp; Medical Clinics</div>
+      <div class="ind"><span class="ind-ico">🏠</span>Real Estate Agencies</div>
+      <div class="ind"><span class="ind-ico">⚖️</span>Law Firms &amp; Notaries</div>
+      <div class="ind"><span class="ind-ico">🛍️</span>Retail &amp; E-commerce</div>
+      <div class="ind"><span class="ind-ico">🍽️</span>Restaurants &amp; Food Service</div>
+      <div class="ind"><span class="ind-ico">🏗️</span>Construction &amp; Contractors</div>
+      <div class="ind"><span class="ind-ico">🚚</span>Logistics &amp; Delivery</div>
+      <div class="ind"><span class="ind-ico">💪</span>Fitness Studios &amp; Gyms</div>
+      <div class="ind"><span class="ind-ico">📚</span>Education &amp; Tutoring</div>
+      <div class="ind ind-o"><a href="#contact">Other — book a process review and we will tell you if we can help →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="results">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lbl">Case study</div>
+      <h2>Real result. Real business. Real numbers.</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cs rv">
+      <div class="cs-card">
+        <p class="cs-story">A hotel in Tirana was receiving 60 WhatsApp messages per day. Their receptionist spent 3 hours answering the same questions about availability, check-in, and parking. Nights and weekends went unanswered — guests booked somewhere else.<br><br>We started with a process review to map their full communication flow. We identified four specific points where guests were being lost or delayed. We then built a system that handles all four automatically — reading each message, checking availability in real time, and replying instantly in Albanian and English, 24 hours a day.</p>
+        <div class="cs-res">
+          <div class="res-item"><div class="res-n">3 hrs</div><div class="res-l">Saved daily</div></div>
+          <div class="res-item"><div class="res-n">2h → 8s</div><div class="res-l">Response time</div></div>
+          <div class="res-item"><div class="res-n">+18%</div><div class="res-l">Bookings, month one</div></div>
+        </div>
+        <div class="vid"><strong>Watch the system in action</strong>Add your Loom video link here — it converts far better than text alone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testi">
+  <div class="wrap">
+    <div class="tcard rv">
+      <blockquote class="tquote">Before AutoFlow AI, I was answering WhatsApp messages until midnight. Now the system handles everything and I sleep through the night. Best investment I made this year.</blockquote>
+      <div class="tauth">
+        <div class="tline"></div>
+        <div class="tauth-info"><strong>Hotel Manager, Durrës — Albania</strong></div>
+        <div class="tline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lbl">Common questions</div>
+      <h2>Everything you want to know</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="faq-l rv">
+      <div class="fi"><div class="fq" onclick="faq(this)">Do I need to install new software?<div class="fi-ico">+</div></div><div class="fa">No. We connect the tools you already use. Your team does nothing differently. The work simply starts happening automatically in the background.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">What if the AI gives a wrong answer?<div class="fi-ico">+</div></div><div class="fa">Every system is tested with 100+ real scenarios before going live. If anything needs fixing after launch, you call us and we fix it the same day.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">Does my team need training?<div class="fi-ico">+</div></div><div class="fa">No. The system runs in the background. Staff work exactly as they do today — they just have less to do. Nothing changes on their side.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">What if I want to cancel?<div class="fi-ico">+</div></div><div class="fa">Month-to-month. Cancel any time with 30 days notice. No penalties, no long contracts. We earn your business every month.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">What happens in the process review?<div class="fi-ico">+</div></div><div class="fa">We map your operation together: what your team does, in what order, where time is lost. You leave with a written summary of findings. It costs nothing.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">My business is not on your list — can you help?<div class="fi-ico">+</div></div><div class="fa">Most likely yes. If your team repeats a process every day, we can probably automate it. Book a free process review and we will tell you honestly.</div></div>
+      <div class="fi"><div class="fq" onclick="faq(this)">Do you work outside Albania?<div class="fi-ico">+</div></div><div class="fa">Yes. We serve clients across Europe and the USA. All work is done remotely. Location is never an issue.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="ab-grid">
+      <div class="ab-text rv">
+        <div class="lbl">About us</div>
+        <h2>A small team with one focus.</h2>
+        <div class="rule-l" style="margin:20px 0 24px"></div>
+        <p>We are a team of four based in Tirana, Albania. We started AutoFlow AI because we kept seeing small business owners — great at their craft — spending hours every day on tasks that a computer could do in seconds.<br><br>We begin every project by mapping your operation before we build anything. That is how we make sure the system we deliver actually solves the right problem. We are small enough to give every client personal attention, and technical enough to build anything.</p>
+      </div>
+      <div class="ab-ph rv"><span>📸</span><p>Team photo</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="con-grid">
+      <div class="con-l rv">
+        <div class="lbl">Get started</div>
+        <h2>Book your free business process review.</h2>
+        <div class="rule-l" style="margin:20px 0 24px"></div>
+        <p>We map your operation, identify every process that can be automated, and give you a written summary of our findings — at no cost and no obligation.</p>
+        <div class="con-opts">
+          <a href="https://calendly.com/autoflow-ai" target="_blank" class="copt"><span class="copt-ico">📅</span>Book a time on Calendly — instant, no back-and-forth</a>
+          <a href="https://wa.me/355000000000" target="_blank" class="copt"><span class="copt-ico">💬</span>Message us on WhatsApp directly</a>
+          <a href="mailto:contact@autoflow.ai" class="copt"><span class="copt-ico">✉️</span>contact@autoflow.ai</a>
+        </div>
+      </div>
+      <div class="rv" style="transition-delay:.15s">
+        <div class="cform">
+          <div class="cform-head"><h3>Send us a message</h3></div>
+          <div class="cform-body">
+            <div id="cf">
+              <div class="fg"><label>Your name</label><input type="text" id="fn" placeholder="e.g. Arta Hoxha"/></div>
+              <div class="fg"><label>Business type</label><select id="ft"><option value="" disabled selected>Select your industry</option><option>Hotel / Hospitality</option><option>Dental / Medical Clinic</option><option>Real Estate Agency</option><option>Law Firm / Notary</option><option>Retail / E-commerce</option><option>Restaurant / Food Service</option><option>Construction / Contractors</option><option>Logistics / Delivery</option><option>Fitness Studio / Gym</option><option>Education / Tutoring</option><option>Other</option></select></div>
+              <div class="fg"><label>WhatsApp number</label><input type="tel" id="fp" placeholder="+355 69 XXX XXXX"/></div>
+              <div class="fg"><label>What takes most of your team's time?</label><textarea id="fm" placeholder="e.g. Answering customer messages, updating our booking system manually..."></textarea></div>
+              <button class="btn btn-p fsub" onclick="send()">Book my free process review</button>
+              <p class="fnote">No sales pitch. No obligation. Just a map of your operation.</p>
+            </div>
+            <div class="fsucc" id="fs">
+              <div class="fsucc-ico">✅</div>
+              <h3>Message received.</h3>
+              <p>We will reach out within one business day to schedule your process review.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="flogo">AutoFlow<em>AI</em></div>
+      <div class="fcon">
+        <a href="mailto:contact@autoflow.ai">contact@autoflow.ai</a>
+        <a href="https://wa.me/355000000000">WhatsApp</a>
+        <span>Tirana, Albania</span>
+      </div>
+      <div class="fcopy">© 2025 AutoFlow AI. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/355000000000" target="_blank" class="wa">💬</a>
+
+<script>
+function faq(el){
+  const item=el.closest('.fi'),open=item.classList.contains('on');
+  document.querySelectorAll('.fi').forEach(i=>i.classList.remove('on'));
+  if(!open)item.classList.add('on');
+}
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function send(){
+  const n=document.getElementById('fn').value.trim();
+  const t=document.getElementById('ft').value;
+  const p=document.getElementById('fp').value.trim();
+  if(!n||!t||!p){alert('Please fill in your name, business type, and WhatsApp number.');return;}
+  document.getElementById('cf').style.display='none';
+  document.getElementById('fs').classList.add('on');
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
