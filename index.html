@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modus — Business Process Automation & Branding</title>
+<title>Modus Studio — AI Automation, AI Agents & Branding | Tirana, Albania</title>
 <meta name="description" content="From customer replies to database updates, appointment flows to invoice follow-ups — if your team does it the same way every day, we automate it. Plus branding, UI/UX and strategy.">
-<meta name="theme-color" content="#DAF9FF">
+<meta name="theme-color" content="#010E20">
+<link rel="canonical" href="https://themodusstudio.com/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Modus Studio">
+<meta property="og:url" content="https://themodusstudio.com/">
+<meta property="og:title" content="Modus Studio — AI Automation, AI Agents & Branding">
+<meta property="og:description" content="From customer replies to database updates, appointment flows to invoice follow-ups — if your team does it the same way every day, we automate it. Plus branding, UI/UX and strategy.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Modus Studio","alternateName":"Modus","url":"https://themodusstudio.com/","logo":"https://themodusstudio.com/favicon.svg","description":"Business process automation, AI agents, branding, UI/UX design and strategy. Based in Tirana, Albania, serving clients across Europe and the USA.","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"areaServed":["Europe","United States"],"knowsAbout":["Business process automation","AI agents","Workflow automation","Branding","UI/UX design","Business strategy"]}
+</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +118,7 @@ body.menu-open .menu nav a:nth-child(6){transition-delay:.55s}
 /* scroll rail */
 .rail{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--ink);transition:color var(--t)}
 .rail .bar{width:2px;height:120px;background:var(--line);position:relative;overflow:hidden}
-.rail .bar i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--a2)}
+.rail .bar i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--a1)}
 
 /* ───────── Shared ───────── */
 .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
@@ -127,14 +138,14 @@ section{position:relative;padding:150px 0}
 .btn .ar{transition:transform .35s var(--ease)}
 .btn:hover .ar{transform:translateX(5px)}
 .btn-fill{background:var(--a3);color:#fff}
-.btn-fill:hover{background:var(--b2);transform:translateY(-2px)}
+.btn-fill:hover{background:var(--a2);transform:translateY(-2px)}
 .btn-line{color:var(--ink);box-shadow:inset 0 0 0 2px currentColor}
-.btn-line:hover{background:var(--a3);color:#fff;box-shadow:inset 0 0 0 2px var(--a3)}
+.btn-line:hover{background:var(--a1);color:var(--b3);box-shadow:inset 0 0 0 2px var(--a1)}
 
 /* ───────── Hero ───────── */
 #hero{min-height:100vh;padding:150px 0 70px;display:flex;flex-direction:column;justify-content:center}
 .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;margin-bottom:34px}
-.hero-label{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--a2)}
+.hero-label{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--a1)}
 .hero-svcs{display:grid;grid-template-columns:auto auto;gap:4px 34px;font-size:13px;color:var(--muted)}
 #hero h1{font-size:clamp(52px,7.8vw,128px);max-width:940px}
 #hero h1 em{white-space:nowrap}
@@ -143,12 +154,12 @@ section{position:relative;padding:150px 0}
 .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .hero-scroll{margin-top:70px;display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .hero-scroll-line{width:48px;height:2px;background:var(--a1);position:relative;overflow:hidden}
-.hero-scroll-line::after{content:"";position:absolute;inset:0;background:var(--a3);transform:translateX(-100%);animation:scan 2.2s var(--ease) infinite}
+.hero-scroll-line::after{content:"";position:absolute;inset:0;background:var(--pale);transform:translateX(-100%);animation:scan 2.2s var(--ease) infinite}
 @keyframes scan{to{transform:translateX(100%)}}
 
 /* ───────── Cost (blue panel) ───────── */
 #cost{padding:0}
-.cost-panel{background:var(--a3);color:#fff;padding:130px 0;clip-path:inset(0 0 0 0 round 0)}
+.cost-panel{background:var(--b2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#fff;padding:130px 0;clip-path:inset(0 0 0 0 round 0)}
 #cost .tag{background:var(--pale);color:var(--b3)}
 #cost h2{color:#fff;font-size:clamp(36px,4.6vw,68px);margin-bottom:46px}
 #cost h2 em{color:var(--pale)}
@@ -172,7 +183,7 @@ section{position:relative;padding:150px 0}
 #method .h2{font-size:clamp(34px,4.8vw,76px);margin-bottom:0;max-width:820px}
 .wheel{position:relative;flex:1;perspective:1500px;perspective-origin:50% 40%;min-height:0}
 .wheel-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
-.step{position:absolute;left:0;top:0;width:min(640px,86vw);transform-style:preserve-3d;background:var(--card);border:1px solid var(--line);padding:42px 42px 38px;display:grid;grid-template-columns:110px 1fr;gap:26px;will-change:transform,opacity;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 30px 80px -40px rgba(50,102,142,.45)}
+.step{position:absolute;left:0;top:0;width:min(640px,86vw);transform-style:preserve-3d;background:var(--card);border:1px solid var(--line);padding:42px 42px 38px;display:grid;grid-template-columns:110px 1fr;gap:26px;will-change:transform,opacity;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 30px 80px -40px rgba(0,0,0,.7)}
 .step-num{font-family:var(--serif);font-style:italic;font-weight:300;font-size:92px;line-height:.8;color:var(--a1)}
 .step-body h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:16px;line-height:1}
 .step-body p{color:var(--text);opacity:.85;font-size:16px;line-height:1.65}
@@ -181,7 +192,7 @@ section{position:relative;padding:150px 0}
 .steps-controls{display:flex;align-items:center;gap:18px}
 .steps-dots{display:flex;gap:10px}
 .steps-dots button{width:12px;height:12px;background:var(--line);transition:width .45s var(--ease),background-color .3s}
-.steps-dots button.on{width:46px;background:var(--a3)}
+.steps-dots button.on{width:46px;background:var(--a1)}
 .steps-arrows{display:flex;gap:10px}
 .steps-arrows button{width:64px;height:64px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:20px;transition:transform .4s var(--ease),opacity .3s}
 .steps-arrows button:hover{transform:rotate(-6deg)}
@@ -254,13 +265,13 @@ footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-c
 .footer-links a{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s}
 .footer-links a:hover{color:var(--accent)}
 .footer-copy{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.footer-logo{color:var(--a3)}
+.footer-logo{color:var(--a1)}
 .footer-logo svg{height:22px;width:auto;display:block}
 
 /* ───────── Modal ───────── */
 .modal-overlay{position:fixed;inset:0;z-index:150;background:rgba(1,14,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
 .modal-overlay.open{opacity:1;pointer-events:auto}
-.modal-glass{width:min(560px,100%);height:100%;background:var(--b3);color:#eaf3fb;padding:110px 48px 48px;overflow-y:auto;transform:translateX(100%);transition:transform .7s var(--ease);position:relative}
+.modal-glass{width:min(560px,100%);height:100%;background:var(--b2);border-left:1px solid var(--line);color:#eaf3fb;padding:110px 48px 48px;overflow-y:auto;transform:translateX(100%);transition:transform .7s var(--ease);position:relative}
 .modal-overlay.open .modal-glass{transform:none}
 .modal-close{position:absolute;top:26px;right:40px;width:72px;height:72px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .modal-glass h3{color:#eaf3fb;font-size:clamp(36px,4vw,54px);margin-bottom:18px}
@@ -325,7 +336,7 @@ footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-c
 </style>
 <script>document.documentElement.className='js';</script>
 </head>
-<body class="locked">
+<body class="locked branding">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="modus-logo" viewBox="0 0 411 66"><path fill="currentColor" fill-rule="evenodd" d="M294.7 65.7C294.4 65.6 292.4 65.3 290.1 65.1C281.9 64.5 277.1 63.3 272.3 60.9C270.1 59.9 269.0 58.9 267.5 56.9C264.4 52.7 263.5 48.8 263.0 37.5C262.8 34.3 262.8 31.2 262.9 30.8C263.0 30.3 263.1 27.9 263.1 25.4C263.2 20.4 263.4 19.5 265.2 16.8C266.7 14.6 268.8 13.6 271.4 13.9C273.3 14.2 275.4 16.5 276.0 19.2C276.2 20.0 276.3 24.0 276.3 30.6C276.2 45.8 276.7 49.3 279.0 51.5C280.0 52.5 282.2 53.8 283.8 54.4C286.8 55.6 288.6 55.8 301.4 55.7C311.9 55.7 313.8 55.7 316.6 55.3C322.8 54.4 325.2 52.7 326.3 48.3C326.8 46.5 326.8 45.4 326.8 32.5L326.9 18.6 L327.6 17.1C328.3 15.9 328.6 15.5 329.8 14.9C332.7 13.4 335.7 14.6 337.3 17.7C337.7 18.7 337.8 19.5 338.0 22.5C338.1 24.5 338.3 26.9 338.5 27.8C338.9 30.0 338.8 32.2 338.4 34.1C338.1 35.3 338.0 37.2 338.0 41.7L338.1 47.6 L337.3 49.9C336.8 51.1 336.3 52.6 336.1 53.2C335.5 55.2 334.0 57.9 333.0 58.8C331.2 60.6 323.9 64.0 321.9 64.0C321.5 64.0 319.8 64.2 318.1 64.5C316.0 64.9 313.2 65.1 308.6 65.2C305.1 65.4 301.7 65.6 301.3 65.7C300.1 66.1 295.3 66.1 294.7 65.7ZM134.8 65.5C134.5 65.4 133.3 65.2 132.1 65.1C125.4 64.6 121.5 64.1 119.6 63.4C119.1 63.2 118.5 63.0 118.3 63.0C118.1 63.0 117.6 62.8 117.2 62.6C116.7 62.4 115.5 61.9 114.5 61.5C112.1 60.5 110.5 59.2 108.8 56.9C107.2 54.8 106.2 52.8 105.8 51.0C105.4 49.4 105.1 42.6 105.1 35.1C105.2 29.5 105.3 28.3 106.7 25.6C107.4 24.2 111.2 19.3 112.2 18.4C113.6 17.3 116.1 16.3 119.9 15.5C121.2 15.2 122.9 14.8 123.5 14.6C125.3 14.0 133.5 13.5 141.6 13.4C147.9 13.3 149.8 13.4 153.1 13.8C155.3 14.1 157.5 14.4 158.0 14.5C158.5 14.6 159.5 14.8 160.2 14.9C162.8 15.2 166.9 16.3 168.6 17.2C170.2 17.9 170.7 18.3 172.6 20.7C175.3 23.9 175.6 24.2 176.2 26.1C177.0 28.4 177.0 28.5 177.3 34.9C177.5 39.4 177.5 41.9 177.3 45.1C176.7 52.7 176.4 54.1 174.1 56.8C170.0 61.8 163.7 64.4 153.6 65.0C151.6 65.1 149.5 65.3 149.0 65.4C147.9 65.6 135.4 65.7 134.8 65.5ZM218.5 65.5C205.6 65.1 199.8 64.4 194.9 62.4C189.0 60.1 187.0 58.3 184.9 53.2C183.7 50.2 183.4 47.8 183.6 42.2C183.7 39.6 183.7 36.4 183.5 35.2C183.1 30.3 184.9 24.7 188.7 19.9C190.3 17.8 191.6 17.1 197.5 15.5C204.1 13.7 207.6 13.5 226.5 13.4C232.9 13.3 238.7 13.2 239.5 13.1C242.5 12.7 243.6 11.5 244.4 7.7C245.0 4.8 245.4 4.1 247.6 2.1C248.8 0.9 250.0 0.6 252.1 0.9C253.2 1.0 253.5 1.2 254.6 2.3C255.7 3.4 256.2 4.4 256.8 6.1C257.1 7.1 257.3 44.4 257.0 48.4C256.7 51.8 256.2 53.7 254.9 56.0C253.3 58.6 251.8 59.9 248.4 61.4C248.0 61.6 247.1 61.9 246.5 62.2C244.5 63.1 241.7 63.9 239.6 64.2C238.5 64.4 237.3 64.6 236.9 64.6C236.2 64.7 230.9 65.2 226.2 65.6C225.6 65.6 222.1 65.6 218.5 65.5ZM387.2 65.0C384.4 64.4 383.2 61.4 384.6 58.7C385.6 57.0 386.6 56.3 389.0 55.9C393.7 55.1 395.4 54.4 396.7 52.8C398.4 50.9 398.4 49.0 396.7 47.2C395.8 46.1 395.6 46.0 393.9 45.7C392.9 45.4 391.1 45.2 389.8 45.1C388.4 45.0 386.6 44.8 385.6 44.6C384.2 44.3 381.5 44.1 372.4 44.0C361.9 43.8 360.7 43.8 359.0 43.3C355.0 42.2 353.4 41.3 349.9 38.3C346.1 35.1 345.2 33.3 345.2 29.6C345.2 26.3 345.9 24.3 348.4 20.8C349.8 18.7 351.5 17.3 353.1 16.8C355.7 16.0 359.6 15.0 360.1 15.0C360.4 15.0 361.3 14.8 362.0 14.6C364.9 13.9 370.9 13.5 385.9 13.4C399.2 13.3 400.9 13.3 403.8 13.7C407.4 14.2 408.3 14.7 409.4 16.8C410.1 18.1 410.1 19.7 409.3 20.7C408.6 21.7 406.7 22.9 405.5 23.1C404.9 23.2 395.5 23.3 384.8 23.4C364.1 23.4 362.2 23.5 360.1 24.6C358.8 25.2 358.3 25.7 357.7 26.8C357.1 27.9 357.1 28.5 357.7 30.2C358.2 31.9 359.7 33.6 361.2 34.4C363.1 35.3 365.9 35.5 381.6 35.7L396.4 35.9 L398.5 36.6C402.3 37.8 406.6 40.2 408.0 42.0C409.8 44.3 410.8 49.1 410.3 52.7C409.9 55.3 409.0 57.0 407.0 59.0C404.4 61.6 400.7 63.3 395.1 64.5C392.3 65.1 388.6 65.3 387.2 65.0ZM47.9 64.7C46.1 64.0 45.2 62.7 44.7 60.2C44.5 59.2 44.4 53.9 44.3 45.1C44.1 36.8 44.0 31.3 43.8 30.9C42.8 27.9 41.1 25.7 39.0 24.6C37.5 23.9 33.7 23.5 27.5 23.5C16.4 23.5 13.6 24.7 11.7 30.0C11.2 31.6 11.2 32.0 11.1 44.9L11.1 58.1 L10.4 59.4C8.3 63.3 4.7 65.1 2.5 63.3C1.0 62.1 1.0 61.8 0.9 54.1C0.8 50.3 0.7 46.5 0.6 45.6C0.5 44.8 0.4 42.5 0.5 40.5C0.7 38.5 0.8 34.5 1.0 31.6C1.2 26.2 1.4 25.2 2.6 22.6C4.0 19.9 6.2 17.7 8.6 16.9C16.7 13.9 21.3 13.1 29.5 13.3C33.9 13.4 38.5 13.9 39.3 14.4C40.3 15.0 48.4 16.7 50.4 16.7C51.3 16.7 53.9 16.1 56.1 15.3C58.3 14.5 59.9 14.2 62.1 14.0C63.5 13.9 65.4 13.6 66.2 13.5C69.8 12.9 79.8 13.7 84.2 14.9C88.4 16.0 89.1 16.2 89.6 16.5C93.8 18.4 94.2 18.8 96.5 23.9C96.6 24.1 97.0 25.3 97.3 26.4C98.0 29.1 98.5 39.4 98.2 45.5C98.1 47.9 98.0 52.4 98.0 55.5C98.0 60.9 98.0 61.2 97.4 62.3C96.5 63.9 94.8 64.8 92.5 64.8C91.0 64.8 90.7 64.7 89.7 64.1C88.4 63.2 87.3 61.3 87.0 59.2C86.8 58.3 86.7 52.6 86.6 45.6C86.5 30.1 86.3 28.0 84.0 25.8C82.4 24.4 81.5 24.1 76.9 23.6C73.2 23.3 72.0 23.2 68.4 23.5C61.9 23.9 60.4 24.1 59.3 24.8C57.6 25.9 56.6 27.5 55.6 30.5C55.0 32.2 54.9 33.0 54.7 38.5C54.6 41.9 54.5 47.7 54.5 51.4C54.5 59.4 54.3 61.6 53.2 63.0C52.8 63.5 52.2 64.2 51.9 64.4C51.1 64.9 49.1 65.1 47.9 64.7ZM156.1 55.3C159.5 54.3 161.9 52.8 163.2 51.0C164.0 49.8 164.7 47.6 165.2 45.1C165.4 44.3 165.7 43.1 165.8 42.5C166.1 40.9 165.8 33.5 165.3 31.6C163.8 25.8 159.1 23.4 149.9 23.5C148.1 23.6 142.7 23.5 138.0 23.4C130.9 23.3 129.0 23.4 127.1 23.7C121.9 24.6 118.7 27.4 117.6 32.1C117.4 32.9 117.2 35.3 117.1 37.4C117.0 40.8 117.0 41.4 117.6 44.3C118.0 46.1 118.4 47.7 118.5 48.0C118.6 48.2 119.0 49.0 119.4 49.8C120.2 51.6 122.0 53.2 124.0 54.2C126.7 55.6 131.5 56.0 145.5 55.9C153.6 55.8 154.5 55.7 156.1 55.3ZM236.6 55.2C240.7 54.5 242.0 53.7 243.4 50.9C244.4 49.0 244.6 47.0 244.5 38.9C244.5 30.4 244.2 27.7 243.3 26.2C242.3 24.6 241.4 24.1 239.1 23.8C236.9 23.5 206.6 23.6 203.6 23.9C199.4 24.3 196.6 27.0 195.4 31.7C195.0 33.0 195.0 34.4 195.1 40.0C195.2 46.2 195.2 46.7 195.7 48.0C197.4 52.0 201.0 54.5 206.3 55.3C208.1 55.6 211.6 55.7 221.2 55.7C232.7 55.7 233.9 55.7 236.6 55.2Z"/></symbol></svg>
 
 <!-- LOADER -->
@@ -670,7 +681,6 @@ footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-c
     const vh = innerHeight, de = document.documentElement;
     const r = brand.getBoundingClientRect();
     const on = r.top < vh * .5 && r.bottom > vh * .5;
-    if (on !== body.classList.contains('branding')) { body.classList.toggle('branding', on); meta && meta.setAttribute('content', on ? '#010E20' : '#DAF9FF'); }
     // values used by the 3D scene
     window.__scroll.hero = Math.min(1, Math.max(0, scrollY / (vh * .9)));
     const enter = Math.min(1, Math.max(0, (vh - r.top) / (vh * .8)));
@@ -795,7 +805,7 @@ footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-c
   const lineGeo = new THREE.BufferGeometry();
   const linePos = new Float32Array(pairs.length * 3);
   lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x32668E, transparent: true, opacity: .35 });
+  const lineMat = new THREE.LineBasicMaterial({ color: 0x4C80AF, transparent: true, opacity: .45 });
   const lines = new THREE.LineSegments(lineGeo, lineMat);
   scene.add(lines);
 
@@ -842,8 +852,7 @@ footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-c
     mat.emissive.copy(lightBlue).multiplyScalar(b * .18);
     for (let p = 0; p < pairs.length; p++) { const v = cubes[pairs[p]].pos; linePos[p * 3] = v.x; linePos[p * 3 + 1] = v.y; linePos[p * 3 + 2] = v.z; }
     lineGeo.attributes.position.needsUpdate = true;
-    lineMat.opacity = .38 * (1 - h) * (1 - b);
-    lineMat.color.set(0x32668E);
+    lineMat.opacity = .5 * (1 - h) * (1 - b);
     renderer.render(scene, camera);
     if (!reduce) requestAnimationFrame(frame);
   }
