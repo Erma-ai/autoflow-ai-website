@@ -2,20 +2,42 @@
   publish = "."
   command = ""
 
-# Old single-page anchors and earlier file names point to the new homepage
+[[redirects]]
+  from = "/strategy-advisory"
+  to = "/our-approach"
+  status = 301
+
+[[redirects]]
+  from = "/strategy-advisory.html"
+  to = "/our-approach"
+  status = 301
+
+[[redirects]]
+  from = "/ai-automation"
+  to = "/our-approach"
+  status = 301
+
+[[redirects]]
+  from = "/ai-automation.html"
+  to = "/our-approach"
+  status = 301
+
+[[redirects]]
+  from = "/faq"
+  to = "/#faq"
+  status = 301
+
+[[redirects]]
+  from = "/faq.html"
+  to = "/#faq"
+  status = 301
+
 [[redirects]]
   from = "/index1.html"
   to = "/"
   status = 301
-[[redirects]]
-  from = "/index%20(1).html"
-  to = "/"
-  status = 301
+
 [[redirects]]
   from = "/xx.html"
-  to = "/"
-  status = 301
-[[redirects]]
-  from = "/modus-website.zip"
   to = "/"
   status = 301
