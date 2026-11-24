@@ -1,3 +1,21 @@
 [build]
   publish = "."
   command = ""
+
+# Old single-page anchors and earlier file names point to the new homepage
+[[redirects]]
+  from = "/index1.html"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/index%20(1).html"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/xx.html"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/modus-website.zip"
+  to = "/"
+  status = 301

@@ -3,861 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modus Studio — AI Automation, AI Agents & Branding | Tirana, Albania</title>
-<meta name="description" content="From customer replies to database updates, appointment flows to invoice follow-ups — if your team does it the same way every day, we automate it. Plus branding, UI/UX and strategy.">
-<meta name="theme-color" content="#010E20">
+<title>The Modus Studio | Business transformation for growing companies</title>
+<meta name="description" content="We simplify how your business operates, organise its data and automate the work that shouldn't need your attention. AI where it adds value. Human control where it matters.">
 <link rel="canonical" href="https://themodusstudio.com/">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#010E20">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Modus Studio">
+<meta property="og:site_name" content="The Modus Studio">
 <meta property="og:url" content="https://themodusstudio.com/">
-<meta property="og:title" content="Modus Studio — AI Automation, AI Agents & Branding">
-<meta property="og:description" content="From customer replies to database updates, appointment flows to invoice follow-ups — if your team does it the same way every day, we automate it. Plus branding, UI/UX and strategy.">
+<meta property="og:title" content="The Modus Studio | Business transformation for growing companies">
+<meta property="og:description" content="We simplify how your business operates, organise its data and automate the work that shouldn't need your attention. AI where it adds value. Human control where it matters.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Modus Studio","alternateName":"Modus","url":"https://themodusstudio.com/","logo":"https://themodusstudio.com/favicon.svg","description":"Business process automation, AI agents, branding, UI/UX design and strategy. Based in Tirana, Albania, serving clients across Europe and the USA.","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"areaServed":["Europe","United States"],"knowsAbout":["Business process automation","AI agents","Workflow automation","Branding","UI/UX design","Business strategy"]}
-</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Fraunces:ital,wght@1,300&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<style>
+<link rel="preload" href="fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 
-/* ───────── Modus palette ─────────
-   automation: #74A3D1 #4C80AF #32668E (on pale #DAF9FF)
-   branding:   #0A3957 #04243D #010E20                          */
-:root{
-  --a1:#74A3D1; --a2:#4C80AF; --a3:#32668E; --pale:#DAF9FF;
-  --b1:#0A3957; --b2:#04243D; --b3:#010E20;
-
-  --bg:var(--pale);
-  --ink:#32668E;            /* headings */
-  --text:#2c4357;           /* body */
-  --muted:rgba(44,67,87,.68);
-  --line:rgba(50,102,142,.18);
-  --card:rgba(255,255,255,.8);
-  --accent:#4C80AF;         /* italic accent words */
-  --tag-bg:#74A3D1; --tag-ink:#010E20;
-
-  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
-  --serif:'Fraunces',Georgia,'Times New Roman',serif;
-  --body:'Lato','Helvetica Neue',Arial,sans-serif;
-  --ease:cubic-bezier(.22,.8,.24,1);
-  --t:.9s;
-}
-body.branding{
-  --bg:#010E20;
-  --ink:#eaf3fb;
-  --text:#b8cde0;
-  --muted:rgba(184,205,224,.7);
-  --line:rgba(116,163,209,.16);
-  --card:rgba(4,36,61,.78);
-  --accent:#74A3D1;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color var(--t) var(--ease),color var(--t) var(--ease)}
-body.locked{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--a1);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;color:var(--ink);letter-spacing:-.015em;line-height:.95;transition:color var(--t) var(--ease)}
-h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:300;text-transform:none;color:var(--accent);letter-spacing:-.02em;transition:color var(--t) var(--ease)}
-
-/* 3D stage sits behind everything */
-#stage{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
-main,footer{position:relative;z-index:1}
-
-/* ───────── Loader ───────── */
-.loader{position:fixed;inset:0;z-index:200;background:var(--b3);display:none;align-items:center;justify-content:center;flex-direction:column;gap:28px;transition:transform 1s var(--ease)}
-.js .loader{display:flex}
-.loader.done{transform:translateY(-100%)}
-.loader .lg{position:relative;width:min(280px,60vw)}
-.loader .lg svg{width:100%;height:auto;display:block}
-.loader .lg .base{color:rgba(116,163,209,.16)}
-.loader .lg .fill{position:absolute;inset:0;color:var(--a1);clip-path:inset(0 100% 0 0);transition:clip-path .15s linear}
-.loader .pct{position:absolute;right:32px;bottom:26px;font-family:var(--display);font-weight:800;font-size:clamp(48px,9vw,120px);line-height:1;color:var(--a1);letter-spacing:-.03em}
-.loader .cap{position:absolute;left:32px;bottom:34px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(116,163,209,.7);font-weight:700}
-
-/* ───────── Header ───────── */
-.hdr{position:fixed;top:0;left:0;right:0;z-index:120;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 40px;pointer-events:none}
-.hdr > *{pointer-events:auto}
-.logo{display:block;color:var(--b2);transition:color var(--t) var(--ease)}
-.logo svg{height:24px;width:auto;display:block}
-body.branding .logo,body.menu-open .logo{color:var(--a1)}
-.hdr-right{display:flex;align-items:flex-start;gap:26px}
-.hdr-cta{margin-top:20px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid currentColor;padding-bottom:3px;transition:color var(--t) var(--ease),opacity .3s}
-.hdr-cta:hover{opacity:.65}
-body.menu-open .hdr-cta{color:#eaf3fb}
-.menu-btn{width:72px;height:72px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;transition:transform .45s var(--ease),border-radius .45s var(--ease),background-color .3s}
-.menu-btn:hover{transform:rotate(-6deg) scale(1.04);border-radius:6px}
-.menu-btn .c{display:none}
-body.menu-open .menu-btn .o{display:none}
-body.menu-open .menu-btn .c{display:inline}
-
-/* full-screen menu */
-.menu{position:fixed;inset:0;z-index:110;background:rgba(1,14,32,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;padding:120px 40px 40px;clip-path:circle(0% at calc(100% - 76px) 62px);transition:clip-path .9s var(--ease);visibility:hidden}
-body.menu-open .menu{clip-path:circle(150% at calc(100% - 76px) 62px);visibility:visible}
-.menu nav{display:flex;flex-direction:column;gap:2px;max-width:1240px;width:100%;margin:0 auto}
-.menu nav a{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,92px);line-height:1.02;text-transform:uppercase;color:#eaf3fb;letter-spacing:-.02em;display:flex;align-items:baseline;gap:22px;opacity:0;transform:translateY(40px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .3s}
-.menu nav a small{font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--a1);transform:translateY(-1.4em)}
-.menu nav a .it{display:none;font-family:var(--serif);font-style:italic;font-weight:300;text-transform:lowercase;color:var(--a1)}
-.menu nav a:hover .tx{display:none}
-.menu nav a:hover .it{display:inline}
-body.menu-open .menu nav a{opacity:1;transform:none}
-body.menu-open .menu nav a:nth-child(1){transition-delay:.25s}
-body.menu-open .menu nav a:nth-child(2){transition-delay:.31s}
-body.menu-open .menu nav a:nth-child(3){transition-delay:.37s}
-body.menu-open .menu nav a:nth-child(4){transition-delay:.43s}
-body.menu-open .menu nav a:nth-child(5){transition-delay:.49s}
-body.menu-open .menu nav a:nth-child(6){transition-delay:.55s}
-.menu-foot{max-width:1240px;width:100%;margin:60px auto 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(234,243,251,.6)}
-.menu-foot button{color:var(--a1);border-bottom:2px solid var(--a1);padding-bottom:3px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-family:var(--display)}
-
-/* scroll rail */
-.rail{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--ink);transition:color var(--t)}
-.rail .bar{width:2px;height:120px;background:var(--line);position:relative;overflow:hidden}
-.rail .bar i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--a1)}
-
-/* ───────── Shared ───────── */
-.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
-section{position:relative;padding:150px 0}
-.tag{display:inline-block;background:var(--tag-bg);color:var(--tag-ink);font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px 3px;line-height:1.3;margin-bottom:30px}
-.h2{font-size:clamp(40px,6.2vw,92px);max-width:1000px;margin-bottom:64px}
-
-/* word reveal */
-.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.split .w > span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
-.split.in .w > span{transform:none}
-.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.no-js .rv{opacity:1;transform:none}
-
-.btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:20px 30px;transition:transform .35s var(--ease),background-color .3s,color .3s,box-shadow .3s}
-.btn .ar{transition:transform .35s var(--ease)}
-.btn:hover .ar{transform:translateX(5px)}
-.btn-fill{background:var(--a3);color:#fff}
-.btn-fill:hover{background:var(--a2);transform:translateY(-2px)}
-.btn-line{color:var(--ink);box-shadow:inset 0 0 0 2px currentColor}
-.btn-line:hover{background:var(--a1);color:var(--b3);box-shadow:inset 0 0 0 2px var(--a1)}
-
-/* ───────── Hero ───────── */
-#hero{min-height:100vh;padding:150px 0 70px;display:flex;flex-direction:column;justify-content:center}
-.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;margin-bottom:34px}
-.hero-label{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--a1)}
-.hero-svcs{display:grid;grid-template-columns:auto auto;gap:4px 34px;font-size:13px;color:var(--muted)}
-#hero h1{font-size:clamp(52px,7.8vw,128px);max-width:940px}
-#hero h1 em{white-space:nowrap}
-.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:46px;flex-wrap:wrap}
-.hero-sub{max-width:470px;font-size:18px;color:var(--text)}
-.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.hero-scroll{margin-top:70px;display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.hero-scroll-line{width:48px;height:2px;background:var(--a1);position:relative;overflow:hidden}
-.hero-scroll-line::after{content:"";position:absolute;inset:0;background:var(--pale);transform:translateX(-100%);animation:scan 2.2s var(--ease) infinite}
-@keyframes scan{to{transform:translateX(100%)}}
-
-/* ───────── Cost (blue panel) ───────── */
-#cost{padding:0}
-.cost-panel{background:var(--b2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#fff;padding:130px 0;clip-path:inset(0 0 0 0 round 0)}
-#cost .tag{background:var(--pale);color:var(--b3)}
-#cost h2{color:#fff;font-size:clamp(36px,4.6vw,68px);margin-bottom:46px}
-#cost h2 em{color:var(--pale)}
-.cost-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:80px;align-items:start}
-.cost-list{list-style:none;border-top:1px solid rgba(218,249,255,.22)}
-.cost-list li{display:flex;gap:18px;align-items:center;padding:17px 0;border-bottom:1px solid rgba(218,249,255,.22);font-size:16.5px;color:rgba(255,255,255,.88)}
-.cost-list li::before{content:"";width:9px;height:9px;background:var(--a1);flex:none}
-.cost-note{margin-top:46px;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.3vw,32px);line-height:1.25;letter-spacing:-.01em;text-transform:none}
-.cost-note .wd{opacity:.22;transition:opacity .25s linear}
-.cost-note .wd.lit{opacity:1}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(218,249,255,.22);border-left:1px solid rgba(218,249,255,.22)}
-.stat-card{padding:34px 26px 30px;border-right:1px solid rgba(218,249,255,.22);border-bottom:1px solid rgba(218,249,255,.22);transition:background-color .4s}
-.stat-card:hover{background:rgba(218,249,255,.08)}
-.stat-num{font-family:var(--display);font-weight:800;font-size:clamp(44px,4.8vw,72px);line-height:1;letter-spacing:-.03em;color:var(--pale)}
-.stat-label{margin-top:14px;font-size:14px;color:rgba(218,249,255,.72);line-height:1.5}
-
-/* ───────── Method: 3D wheel carousel (scroll-driven, Sparkk-style) ───────── */
-#method{padding:0;height:340vh}
-.method-pin{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:120px 0 40px;overflow:hidden}
-.method-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
-#method .h2{font-size:clamp(34px,4.8vw,76px);margin-bottom:0;max-width:820px}
-.wheel{position:relative;flex:1;perspective:1500px;perspective-origin:50% 40%;min-height:0}
-.wheel-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
-.step{position:absolute;left:0;top:0;width:min(640px,86vw);transform-style:preserve-3d;background:var(--card);border:1px solid var(--line);padding:42px 42px 38px;display:grid;grid-template-columns:110px 1fr;gap:26px;will-change:transform,opacity;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 30px 80px -40px rgba(0,0,0,.7)}
-.step-num{font-family:var(--serif);font-style:italic;font-weight:300;font-size:92px;line-height:.8;color:var(--a1)}
-.step-body h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:16px;line-height:1}
-.step-body p{color:var(--text);opacity:.85;font-size:16px;line-height:1.65}
-.step-tag{display:inline-block;margin-top:20px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px 4px}
-.step-title{position:absolute;left:0;right:0;bottom:-46px;font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);text-align:center}
-.steps-controls{display:flex;align-items:center;gap:18px}
-.steps-dots{display:flex;gap:10px}
-.steps-dots button{width:12px;height:12px;background:var(--line);transition:width .45s var(--ease),background-color .3s}
-.steps-dots button.on{width:46px;background:var(--a1)}
-.steps-arrows{display:flex;gap:10px}
-.steps-arrows button{width:64px;height:64px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:20px;transition:transform .4s var(--ease),opacity .3s}
-.steps-arrows button:hover{transform:rotate(-6deg)}
-.steps-arrows button:disabled{opacity:.3;pointer-events:none}
-.wheel-hint{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;white-space:nowrap}
-.wheel-hint i{width:2px;height:22px;background:var(--line);position:relative;overflow:hidden}
-.wheel-hint i::after{content:"";position:absolute;left:0;top:0;width:100%;height:50%;background:var(--a2);animation:drip 1.6s var(--ease) infinite}
-@keyframes drip{from{transform:translateY(-100%)}to{transform:translateY(200%)}}
-
-/* ───────── Service cards ───────── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.service-card{position:relative;padding:40px 34px 46px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);overflow:hidden;transition:color .45s var(--ease),background-color var(--t)}
-.service-card::before{content:"";position:absolute;inset:0;background:var(--a3);transform:translateY(101%);transition:transform .6s var(--ease);z-index:0}
-.service-card > *{position:relative;z-index:1}
-.service-card:hover::before{transform:none}
-.service-idx{font-family:var(--serif);font-style:italic;font-weight:300;font-size:40px;line-height:1;color:var(--a1);margin-bottom:42px;transition:color .45s}
-.service-card h3{font-size:21px;line-height:1.05;margin-bottom:14px;transition:color .45s}
-.service-card p{font-size:14.5px;color:var(--muted);line-height:1.6;transition:color .45s}
-.service-card:hover h3{color:#fff}
-.service-card:hover p{color:rgba(255,255,255,.82)}
-.service-card:hover .service-idx{color:var(--pale)}
-
-/* ───────── Branding (navy world) ───────── */
-#branding{padding:200px 0 170px}
-#branding .h2{font-size:clamp(46px,8vw,128px);margin-bottom:34px}
-.branding-sub{max-width:620px;font-size:19px;color:var(--text);margin-bottom:80px}
-#branding .service-card::before{background:var(--a1)}
-#branding .service-card:hover h3{color:var(--b3)}
-#branding .service-card:hover p{color:var(--b1)}
-#branding .service-card:hover .service-idx{color:var(--b1)}
-
-/* ───────── About ───────── */
-.about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:80px;align-items:start}
-.about-text h2{font-size:clamp(38px,5vw,76px);margin-bottom:46px}
-.about-lead{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.4vw,34px);line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin-bottom:34px;transition:color var(--t)}
-.about-lead .wd{opacity:.2;transition:opacity .25s linear}
-.about-lead .wd.lit{opacity:1}
-.about-text p:not(.about-lead){color:var(--text);margin-bottom:18px;max-width:600px}
-.about-photo{aspect-ratio:4/5;border:2px dashed var(--line);display:grid;place-items:center;background:var(--card);position:sticky;top:130px}
-.about-photo-label{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-
-/* ───────── FAQ ───────── */
-.faq-list{border-top:1px solid var(--line)}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-question{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:30px 4px;cursor:pointer;font-family:var(--display);font-weight:800;font-size:clamp(18px,1.9vw,26px);text-transform:uppercase;letter-spacing:-.01em;color:var(--ink);line-height:1.15;transition:color .3s,padding .45s var(--ease)}
-.faq-question:hover{padding-left:16px;color:var(--accent)}
-.faq-icon{flex:none;width:46px;height:46px;background:var(--a1);color:var(--b3);display:grid;place-items:center;font-family:var(--display);font-size:24px;font-weight:500;transition:transform .5s var(--ease)}
-.faq-item.open .faq-icon{transform:rotate(135deg)}
-.faq-answer{max-height:0;overflow:hidden;color:var(--text);font-size:17px;max-width:760px;transition:max-height .6s var(--ease),padding .6s var(--ease);padding:0 4px}
-.faq-item.open .faq-answer{max-height:260px;padding:0 4px 30px}
-
-/* ───────── Contact ───────── */
-#contact{padding:170px 0 140px}
-.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start}
-#contact h2{font-size:clamp(44px,6vw,96px)}
-.contact-form{background:var(--card);border:1px solid var(--line);padding:46px 42px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.form-field label{display:block;font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
-.form-field input,.form-field textarea{width:100%;font:inherit;font-size:17px;color:var(--text);background:transparent;border:0;border-bottom:2px solid var(--line);padding:10px 0 12px;border-radius:0;transition:border-color .3s}
-.form-field textarea{min-height:96px;resize:vertical}
-.form-field input:focus,.form-field textarea:focus{outline:none;border-bottom-color:var(--a2)}
-.form-field input::placeholder,.form-field textarea::placeholder{color:var(--muted);opacity:.7}
-.btn-submit{width:100%;justify-content:center;margin-top:10px}
-.form-success{display:none;text-align:center;padding:30px 0}
-.form-success.show{display:block}
-.success-icon{font-size:40px;margin-bottom:12px}
-
-/* ───────── Footer ───────── */
-footer{border-top:1px solid var(--line);padding:34px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.footer-links{list-style:none;display:flex;gap:24px;flex-wrap:wrap}
-.footer-links a{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s}
-.footer-links a:hover{color:var(--accent)}
-.footer-copy{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.footer-logo{color:var(--a1)}
-.footer-logo svg{height:22px;width:auto;display:block}
-
-/* ───────── Modal ───────── */
-.modal-overlay{position:fixed;inset:0;z-index:150;background:rgba(1,14,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
-.modal-overlay.open{opacity:1;pointer-events:auto}
-.modal-glass{width:min(560px,100%);height:100%;background:var(--b2);border-left:1px solid var(--line);color:#eaf3fb;padding:110px 48px 48px;overflow-y:auto;transform:translateX(100%);transition:transform .7s var(--ease);position:relative}
-.modal-overlay.open .modal-glass{transform:none}
-.modal-close{position:absolute;top:26px;right:40px;width:72px;height:72px;background:var(--a1);color:var(--b3);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.modal-glass h3{color:#eaf3fb;font-size:clamp(36px,4vw,54px);margin-bottom:18px}
-.modal-glass > p{color:#b8cde0;margin-bottom:34px}
-.modal-form{display:flex;flex-direction:column;gap:22px}
-.modal-form input,.modal-form textarea{width:100%;font:inherit;font-size:17px;color:#eaf3fb;background:transparent;border:0;border-bottom:2px solid rgba(116,163,209,.25);padding:10px 0 12px;border-radius:0}
-.modal-form textarea{min-height:96px;resize:vertical}
-.modal-form input:focus,.modal-form textarea:focus{outline:none;border-bottom-color:var(--a1)}
-.modal-form ::placeholder{color:rgba(184,205,224,.55)}
-.btn-upload{background:var(--a1);color:var(--b3);justify-content:center}
-.btn-upload:hover{background:var(--pale)}
-
-/* ───────── Responsive ───────── */
-@media (max-width:960px){
-  .wrap{padding:0 24px}
-  .hdr{padding:18px 20px}
-  .hdr-cta{display:none}
-  .menu-btn{width:60px;height:60px}
-  .menu{padding:100px 24px 30px}
-  .rail{display:none}
-  section{padding:110px 0}
-  .hero-top{flex-direction:column;gap:18px}
-  .cost-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .about-photo{position:static;aspect-ratio:16/10}
-  .cost-panel{padding:100px 0}
-  #branding{padding:150px 0 120px}
-}
-@media (max-width:620px){
-  body{font-size:16px}
-  #hero{padding:120px 0 50px}
-  #hero h1{font-size:clamp(40px,12.2vw,64px)}
-  #hero h1 em{white-space:normal}
-  .hero-svcs{grid-template-columns:auto auto;gap:2px 22px;font-size:12px}
-  .hero-bottom{margin-top:34px}
-  .hero-scroll{margin-top:44px}
-  .btn{padding:17px 22px;font-size:12px}
-  .services-grid{grid-template-columns:1fr}
-  #method{height:320vh}
-  .method-pin{padding:88px 0 16px}
-  .method-head .tag{margin-bottom:14px}
-  .method-head{flex-direction:column;align-items:flex-start;gap:16px}
-  #method .h2{font-size:clamp(30px,8.6vw,44px)}
-  .step{grid-template-columns:1fr;gap:6px;padding:24px 22px 24px}
-  .step-num{font-size:52px}
-  .step-body h3{font-size:20px;margin-bottom:10px}
-  .step-body p{font-size:13.5px;line-height:1.5}
-  .step-body p + p{margin-top:8px!important}
-  .step-tag{margin-top:12px}
-  .steps-arrows button{width:48px;height:48px;font-size:17px}
-  .wheel-hint{display:none}
-  .stats-grid .stat-card{padding:26px 18px}
-  .contact-form{padding:32px 22px}
-  .modal-glass{padding:100px 24px 32px}
-  .modal-close{right:20px;top:18px;width:60px;height:60px}
-  footer{padding:30px 24px;flex-direction:column;align-items:flex-start}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .split .w > span,.rv{transform:none;opacity:1}
-}
-</style>
-<script>document.documentElement.className='js';</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "The Modus Studio", "url": "https://themodusstudio.com/", "logo": "https://themodusstudio.com/favicon.svg", "slogan": "Less chasing. More control.", "description": "Business transformation studio for growing companies: process redesign, data organisation, automation and AI where it adds value.", "address": {"@type": "PostalAddress", "addressLocality": "Tirana", "addressCountry": "AL"}, "areaServed": "Europe"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the Modus Map?", "acceptedAnswer": {"@type": "Answer", "text": "A paid diagnostic that shows how work runs today, where it gets stuck and what to improve first. You receive a practical roadmap, whether or not you choose us to implement it."}}, {"@type": "Question", "name": "What happens in the introductory call?", "acceptedAnswer": {"@type": "Answer", "text": "We talk through how your business runs today and what you would like to change, and explain how the Modus Map works, so you can decide whether it is the right next step."}}, {"@type": "Question", "name": "I am not sure what I need.", "acceptedAnswer": {"@type": "Answer", "text": "That is fine. Book an introductory call and tell us what is not working. We will help you identify a sensible starting point."}}, {"@type": "Question", "name": "Do we have to use you to implement the roadmap?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Modus Map is a standalone diagnostic. You receive the roadmap whether or not you choose us to implement it."}}, {"@type": "Question", "name": "Will we need new software?", "acceptedAnswer": {"@type": "Answer", "text": "We work with the tools you already use wherever possible and introduce new ones only when necessary. You stay in control of what changes."}}, {"@type": "Question", "name": "Do we have to use AI?", "acceptedAnswer": {"@type": "Answer", "text": "No. We restructure and organise first, automate steps that follow predictable rules, and add AI only where it genuinely helps, with appropriate review."}}, {"@type": "Question", "name": "Where is our data processed?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the systems involved in your project. Before anything goes live, we explain which systems and providers are used, where information is processed and how access and approvals are managed."}}, {"@type": "Question", "name": "Is our data used to train AI models?", "acceptedAnswer": {"@type": "Answer", "text": "Where an AI service is part of a workflow, we explain which provider is used and what its terms say about using data for training, so you can decide before it goes live."}}, {"@type": "Question", "name": "Do you use n8n or custom code?", "acceptedAnswer": {"@type": "Answer", "text": "Both, depending on the process. We use n8n where a visual, maintainable workflow fits, and custom code where a requirement calls for it. We explain the choice for each workflow."}}, {"@type": "Question", "name": "Do you work outside Albania?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work remotely, with an initial focus on businesses across Europe. Enquiries from the US are welcome."}}]}</script>
 </head>
-<body class="locked branding">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="modus-logo" viewBox="0 0 411 66"><path fill="currentColor" fill-rule="evenodd" d="M294.7 65.7C294.4 65.6 292.4 65.3 290.1 65.1C281.9 64.5 277.1 63.3 272.3 60.9C270.1 59.9 269.0 58.9 267.5 56.9C264.4 52.7 263.5 48.8 263.0 37.5C262.8 34.3 262.8 31.2 262.9 30.8C263.0 30.3 263.1 27.9 263.1 25.4C263.2 20.4 263.4 19.5 265.2 16.8C266.7 14.6 268.8 13.6 271.4 13.9C273.3 14.2 275.4 16.5 276.0 19.2C276.2 20.0 276.3 24.0 276.3 30.6C276.2 45.8 276.7 49.3 279.0 51.5C280.0 52.5 282.2 53.8 283.8 54.4C286.8 55.6 288.6 55.8 301.4 55.7C311.9 55.7 313.8 55.7 316.6 55.3C322.8 54.4 325.2 52.7 326.3 48.3C326.8 46.5 326.8 45.4 326.8 32.5L326.9 18.6 L327.6 17.1C328.3 15.9 328.6 15.5 329.8 14.9C332.7 13.4 335.7 14.6 337.3 17.7C337.7 18.7 337.8 19.5 338.0 22.5C338.1 24.5 338.3 26.9 338.5 27.8C338.9 30.0 338.8 32.2 338.4 34.1C338.1 35.3 338.0 37.2 338.0 41.7L338.1 47.6 L337.3 49.9C336.8 51.1 336.3 52.6 336.1 53.2C335.5 55.2 334.0 57.9 333.0 58.8C331.2 60.6 323.9 64.0 321.9 64.0C321.5 64.0 319.8 64.2 318.1 64.5C316.0 64.9 313.2 65.1 308.6 65.2C305.1 65.4 301.7 65.6 301.3 65.7C300.1 66.1 295.3 66.1 294.7 65.7ZM134.8 65.5C134.5 65.4 133.3 65.2 132.1 65.1C125.4 64.6 121.5 64.1 119.6 63.4C119.1 63.2 118.5 63.0 118.3 63.0C118.1 63.0 117.6 62.8 117.2 62.6C116.7 62.4 115.5 61.9 114.5 61.5C112.1 60.5 110.5 59.2 108.8 56.9C107.2 54.8 106.2 52.8 105.8 51.0C105.4 49.4 105.1 42.6 105.1 35.1C105.2 29.5 105.3 28.3 106.7 25.6C107.4 24.2 111.2 19.3 112.2 18.4C113.6 17.3 116.1 16.3 119.9 15.5C121.2 15.2 122.9 14.8 123.5 14.6C125.3 14.0 133.5 13.5 141.6 13.4C147.9 13.3 149.8 13.4 153.1 13.8C155.3 14.1 157.5 14.4 158.0 14.5C158.5 14.6 159.5 14.8 160.2 14.9C162.8 15.2 166.9 16.3 168.6 17.2C170.2 17.9 170.7 18.3 172.6 20.7C175.3 23.9 175.6 24.2 176.2 26.1C177.0 28.4 177.0 28.5 177.3 34.9C177.5 39.4 177.5 41.9 177.3 45.1C176.7 52.7 176.4 54.1 174.1 56.8C170.0 61.8 163.7 64.4 153.6 65.0C151.6 65.1 149.5 65.3 149.0 65.4C147.9 65.6 135.4 65.7 134.8 65.5ZM218.5 65.5C205.6 65.1 199.8 64.4 194.9 62.4C189.0 60.1 187.0 58.3 184.9 53.2C183.7 50.2 183.4 47.8 183.6 42.2C183.7 39.6 183.7 36.4 183.5 35.2C183.1 30.3 184.9 24.7 188.7 19.9C190.3 17.8 191.6 17.1 197.5 15.5C204.1 13.7 207.6 13.5 226.5 13.4C232.9 13.3 238.7 13.2 239.5 13.1C242.5 12.7 243.6 11.5 244.4 7.7C245.0 4.8 245.4 4.1 247.6 2.1C248.8 0.9 250.0 0.6 252.1 0.9C253.2 1.0 253.5 1.2 254.6 2.3C255.7 3.4 256.2 4.4 256.8 6.1C257.1 7.1 257.3 44.4 257.0 48.4C256.7 51.8 256.2 53.7 254.9 56.0C253.3 58.6 251.8 59.9 248.4 61.4C248.0 61.6 247.1 61.9 246.5 62.2C244.5 63.1 241.7 63.9 239.6 64.2C238.5 64.4 237.3 64.6 236.9 64.6C236.2 64.7 230.9 65.2 226.2 65.6C225.6 65.6 222.1 65.6 218.5 65.5ZM387.2 65.0C384.4 64.4 383.2 61.4 384.6 58.7C385.6 57.0 386.6 56.3 389.0 55.9C393.7 55.1 395.4 54.4 396.7 52.8C398.4 50.9 398.4 49.0 396.7 47.2C395.8 46.1 395.6 46.0 393.9 45.7C392.9 45.4 391.1 45.2 389.8 45.1C388.4 45.0 386.6 44.8 385.6 44.6C384.2 44.3 381.5 44.1 372.4 44.0C361.9 43.8 360.7 43.8 359.0 43.3C355.0 42.2 353.4 41.3 349.9 38.3C346.1 35.1 345.2 33.3 345.2 29.6C345.2 26.3 345.9 24.3 348.4 20.8C349.8 18.7 351.5 17.3 353.1 16.8C355.7 16.0 359.6 15.0 360.1 15.0C360.4 15.0 361.3 14.8 362.0 14.6C364.9 13.9 370.9 13.5 385.9 13.4C399.2 13.3 400.9 13.3 403.8 13.7C407.4 14.2 408.3 14.7 409.4 16.8C410.1 18.1 410.1 19.7 409.3 20.7C408.6 21.7 406.7 22.9 405.5 23.1C404.9 23.2 395.5 23.3 384.8 23.4C364.1 23.4 362.2 23.5 360.1 24.6C358.8 25.2 358.3 25.7 357.7 26.8C357.1 27.9 357.1 28.5 357.7 30.2C358.2 31.9 359.7 33.6 361.2 34.4C363.1 35.3 365.9 35.5 381.6 35.7L396.4 35.9 L398.5 36.6C402.3 37.8 406.6 40.2 408.0 42.0C409.8 44.3 410.8 49.1 410.3 52.7C409.9 55.3 409.0 57.0 407.0 59.0C404.4 61.6 400.7 63.3 395.1 64.5C392.3 65.1 388.6 65.3 387.2 65.0ZM47.9 64.7C46.1 64.0 45.2 62.7 44.7 60.2C44.5 59.2 44.4 53.9 44.3 45.1C44.1 36.8 44.0 31.3 43.8 30.9C42.8 27.9 41.1 25.7 39.0 24.6C37.5 23.9 33.7 23.5 27.5 23.5C16.4 23.5 13.6 24.7 11.7 30.0C11.2 31.6 11.2 32.0 11.1 44.9L11.1 58.1 L10.4 59.4C8.3 63.3 4.7 65.1 2.5 63.3C1.0 62.1 1.0 61.8 0.9 54.1C0.8 50.3 0.7 46.5 0.6 45.6C0.5 44.8 0.4 42.5 0.5 40.5C0.7 38.5 0.8 34.5 1.0 31.6C1.2 26.2 1.4 25.2 2.6 22.6C4.0 19.9 6.2 17.7 8.6 16.9C16.7 13.9 21.3 13.1 29.5 13.3C33.9 13.4 38.5 13.9 39.3 14.4C40.3 15.0 48.4 16.7 50.4 16.7C51.3 16.7 53.9 16.1 56.1 15.3C58.3 14.5 59.9 14.2 62.1 14.0C63.5 13.9 65.4 13.6 66.2 13.5C69.8 12.9 79.8 13.7 84.2 14.9C88.4 16.0 89.1 16.2 89.6 16.5C93.8 18.4 94.2 18.8 96.5 23.9C96.6 24.1 97.0 25.3 97.3 26.4C98.0 29.1 98.5 39.4 98.2 45.5C98.1 47.9 98.0 52.4 98.0 55.5C98.0 60.9 98.0 61.2 97.4 62.3C96.5 63.9 94.8 64.8 92.5 64.8C91.0 64.8 90.7 64.7 89.7 64.1C88.4 63.2 87.3 61.3 87.0 59.2C86.8 58.3 86.7 52.6 86.6 45.6C86.5 30.1 86.3 28.0 84.0 25.8C82.4 24.4 81.5 24.1 76.9 23.6C73.2 23.3 72.0 23.2 68.4 23.5C61.9 23.9 60.4 24.1 59.3 24.8C57.6 25.9 56.6 27.5 55.6 30.5C55.0 32.2 54.9 33.0 54.7 38.5C54.6 41.9 54.5 47.7 54.5 51.4C54.5 59.4 54.3 61.6 53.2 63.0C52.8 63.5 52.2 64.2 51.9 64.4C51.1 64.9 49.1 65.1 47.9 64.7ZM156.1 55.3C159.5 54.3 161.9 52.8 163.2 51.0C164.0 49.8 164.7 47.6 165.2 45.1C165.4 44.3 165.7 43.1 165.8 42.5C166.1 40.9 165.8 33.5 165.3 31.6C163.8 25.8 159.1 23.4 149.9 23.5C148.1 23.6 142.7 23.5 138.0 23.4C130.9 23.3 129.0 23.4 127.1 23.7C121.9 24.6 118.7 27.4 117.6 32.1C117.4 32.9 117.2 35.3 117.1 37.4C117.0 40.8 117.0 41.4 117.6 44.3C118.0 46.1 118.4 47.7 118.5 48.0C118.6 48.2 119.0 49.0 119.4 49.8C120.2 51.6 122.0 53.2 124.0 54.2C126.7 55.6 131.5 56.0 145.5 55.9C153.6 55.8 154.5 55.7 156.1 55.3ZM236.6 55.2C240.7 54.5 242.0 53.7 243.4 50.9C244.4 49.0 244.6 47.0 244.5 38.9C244.5 30.4 244.2 27.7 243.3 26.2C242.3 24.6 241.4 24.1 239.1 23.8C236.9 23.5 206.6 23.6 203.6 23.9C199.4 24.3 196.6 27.0 195.4 31.7C195.0 33.0 195.0 34.4 195.1 40.0C195.2 46.2 195.2 46.7 195.7 48.0C197.4 52.0 201.0 54.5 206.3 55.3C208.1 55.6 211.6 55.7 221.2 55.7C232.7 55.7 233.9 55.7 236.6 55.2Z"/></symbol></svg>
 
-<!-- LOADER -->
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="lg">
-    <svg class="base" viewBox="0 0 411 66"><use href="#modus-logo"/></svg>
-    <svg class="fill" id="loaderFill" viewBox="0 0 411 66"><use href="#modus-logo"/></svg>
-  </div>
-  <span class="cap">Process · Automation · Branding</span>
-  <span class="pct" id="loaderPct">0%</span>
-</div>
-
-<canvas id="stage" aria-hidden="true"></canvas>
-
-<!-- HEADER -->
 <header class="hdr">
-  <a href="#hero" class="logo" aria-label="Modus — back to top"><svg viewBox="0 0 411 66"><use href="#modus-logo"/></svg></a>
-  <div class="hdr-right">
-    <a href="#" class="hdr-cta" onclick="openModal(event)">Request an Expert</a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="o">Menu</span><span class="c">Close</span></button>
-  </div>
+  <a href="index.html" class="logo" aria-label="The Modus Studio — home"><svg viewBox="0 0 411 66" aria-hidden="true"><use href="#modus-logo"/></svg></a>
+  <ul class="nav"><li><a href="#method">Our Method</a></li><li><a href="map.html">Modus Map</a></li><li><a href="#about">About</a></li></ul>
+  <a href="#book" class="btn btn-fill">Book an introductory call</a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
+<nav class="menu" id="menu" aria-label="Menu"><a href="#method">Our Method</a><a href="map.html">Modus Map</a><a href="#about">About</a><a href="#book" class="btn btn-fill">Book an introductory call <span class="ar">→</span></a></nav>
 
-<div class="menu" id="menu" aria-hidden="true">
-  <nav aria-label="Main">
-    <a href="#hero"><small>01</small><span class="tx">Home</span><span class="it">home</span></a>
-    <a href="#method"><small>02</small><span class="tx">Methodology</span><span class="it">methodology</span></a>
-    <a href="#services"><small>03</small><span class="tx">Services</span><span class="it">services</span></a>
-    <a href="#branding"><small>04</small><span class="tx">Branding</span><span class="it">branding</span></a>
-    <a href="#about"><small>05</small><span class="tx">About</span><span class="it">about</span></a>
-    <a href="#faq"><small>06</small><span class="tx">FAQ</span><span class="it">faq</span></a>
-  </nav>
-  <div class="menu-foot">
-    <span>Tirana, Albania · Europe &amp; the USA</span>
-    <button onclick="closeMenu();openModal(event)">Request an Expert →</button>
-  </div>
-</div>
+<main id="main">
 
-<div class="rail" aria-hidden="true"><span id="railNum">01</span><span class="bar"><i id="railBar"></i></span><span>06</span></div>
-
-<main>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-top rv">
-      <div class="hero-label">Now serving Europe &amp; the USA</div>
-      <div class="hero-svcs"><span>process mapping</span><span>ai agents</span><span>automation</span><span>branding</span></div>
-    </div>
-    <h1 class="split">Your business, running at <em>full capacity</em> — with half the manual effort.</h1>
-    <div class="hero-bottom">
-      <p class="hero-sub rv">From customer replies to database updates, appointment flows to invoice follow-ups — if your team does it the same way every day, we automate it.</p>
-      <div class="hero-cta-row rv">
-        <button class="btn btn-fill" onclick="openModal(event)">Request an Expert <span class="ar">→</span></button>
-        <a href="#method" class="btn btn-line">See the Methodology</a>
-      </div>
-    </div>
-    <div class="hero-scroll rv">
-      <div class="hero-scroll-line"></div>
-      Works for any business with repetitive work
-    </div>
-  </div>
-</section>
-
-<!-- COST -->
-<section id="cost">
-  <div class="cost-panel">
-    <div class="wrap">
-      <div class="tag">The real cost</div>
-      <div class="cost-grid">
-        <div>
-          <h2 class="split">Your team is spending hours every day on tasks that should take <em>seconds.</em></h2>
-          <ul class="cost-list rv">
-            <li>Answering the same customer questions over and over</li>
-            <li>Entering data by hand into spreadsheets and systems</li>
-            <li>Chasing unpaid invoices and waiting for replies</li>
-            <li>Sending reminders that should send themselves</li>
-            <li>Updating records after every sale, booking, or call</li>
-            <li>Coordinating staff, suppliers, and schedules manually</li>
-          </ul>
-          <div class="cost-note scrub">This is not a people problem. It is a process problem. And every one of these can be automated.</div>
-        </div>
-        <div class="stats-grid rv">
-          <div class="stat-card"><div class="stat-num" data-count="3" data-suffix=" hrs">3 hrs</div><div class="stat-label">Average time saved daily per client</div></div>
-          <div class="stat-card"><div class="stat-num" data-count="8" data-suffix=" sec">8 sec</div><div class="stat-label">Average response time after automation</div></div>
-          <div class="stat-card"><div class="stat-num" data-count="18" data-suffix="%">18%</div><div class="stat-label">Average booking increase in month one</div></div>
-          <div class="stat-card"><div class="stat-num" data-count="400" data-prefix="€" data-suffix="+">€400+</div><div class="stat-label">Weekly loss from just 5 missed bookings</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- METHODOLOGY -->
-<section id="method">
-  <div class="method-pin">
-    <div class="wrap method-head">
-      <div>
-        <div class="tag">Our method</div>
-        <h2 class="h2 split">Process experts <em>first,</em> builders second.</h2>
-      </div>
-      <div class="steps-controls">
-        <div class="steps-dots" id="stepsDots"></div>
-        <div class="steps-arrows">
-          <button type="button" id="stepsPrev" aria-label="Previous step">←</button>
-          <button type="button" id="stepsNext" aria-label="Next step">→</button>
-        </div>
-      </div>
-    </div>
-    <div class="wheel" id="wheel" aria-roledescription="carousel" aria-label="Our method">
-      <div class="wheel-ring" id="wheelRing">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h3>We Map Your Operation</h3>
-          <p>We do not start by talking about technology. We start by understanding your business. We ask you to walk us through a normal working day — what your team does, in what order, how long each task takes, and where things slow down or get missed. We map every process, every handoff, every repetitive task.</p>
-          <p style="margin-top:12px;">Every client receives a written process map before we build a single automation — so you always know exactly what the system does and why.</p>
-          <span class="step-tag">Free — no obligation</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h3>We Build the System</h3>
-          <p>We connect the tools you already use and add AI intelligence on top. No new software for your team to learn. Nothing changes on their side — the work simply starts happening automatically.</p>
-          <p style="margin-top:12px;">Tested across 100+ real scenarios before anything goes live. If something needs fixing after launch, you call us and we fix it the same day.</p>
-          <span class="step-tag">100+ scenarios tested</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h3>It Runs Forever</h3>
-          <p>The system goes live. You pay a monthly maintenance fee. We monitor it, update it when needed, and improve it over time. Your team focuses on the work that only humans can do — the work that actually grows your business.</p>
-          <p style="margin-top:12px;">Month-to-month. Cancel any time with 30 days notice. No penalties, no long contracts.</p>
-          <span class="step-tag">Monthly maintenance included</span>
-        </div>
-      </div>
-      </div>
-      <div class="wheel-hint"><i></i>Scroll to turn</div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="wrap">
-    <div class="tag">What we automate</div>
-    <h2 class="h2 split">Every part of your <em>operation.</em></h2>
-    <div class="services-grid rv">
-      <div class="service-card"><div class="service-idx">01</div><h3>Customer Communication</h3><p>Instant replies · reminders · review collection · follow-ups · complaint handling · multi-language responses</p></div>
-      <div class="service-card"><div class="service-idx">02</div><h3>Database &amp; Records</h3><p>Auto data entry · CRM updates · new contact creation · file organisation · spreadsheet population</p></div>
-      <div class="service-card"><div class="service-idx">03</div><h3>Sales &amp; Leads</h3><p>Lead capture · qualification · follow-up sequences · booking flows · proposal sending · pipeline updates</p></div>
-      <div class="service-card"><div class="service-idx">04</div><h3>Finance &amp; Admin</h3><p>Invoice reminders · payment confirmations · expense logging · supplier follow-ups · contract chasing</p></div>
-      <div class="service-card"><div class="service-idx">05</div><h3>Operations &amp; Coordination</h3><p>Staff scheduling alerts · inventory notifications · task assignment · internal reporting · shift handover notes</p></div>
-      <div class="service-card"><div class="service-idx">06</div><h3>Customer Onboarding</h3><p>Welcome sequences · document collection · intake forms · account setup flows · orientation emails</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- BRANDING -->
-<section id="branding">
-  <div class="wrap">
-    <div class="tag">Beyond automation</div>
-    <h2 class="h2 split">Smart tech is only <em>half the story.</em></h2>
-    <p class="branding-sub rv">People trust what looks trustworthy and use what is easy to use. So beyond automation, we also build the brand, the interfaces and the strategy around your business.</p>
-    <div class="services-grid rv">
-      <div class="service-card"><div class="service-idx">01</div><h3>Branding</h3><p>Logo · visual identity · colours &amp; typography · brand guidelines · a website that makes people trust you at first glance</p></div>
-      <div class="service-card"><div class="service-idx">02</div><h3>UI/UX Design</h3><p>Chat windows · dashboards · client portals — so anyone can use AI by typing a request in plain language</p></div>
-      <div class="service-card"><div class="service-idx">03</div><h3>Strategy</h3><p>Honest advice on growth · costs · teamwork · planning — drawn from what we learn inside your business</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="tag">About us</div>
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="split">One focus: giving you your <em>time back.</em></h2>
-        <p class="about-lead scrub">Modus is based in Tirana, Albania, and works with clients across Europe and the USA. We started Modus because we kept seeing business owners — great at their craft — spending hours every day on tasks that a computer could do in seconds.</p>
-        <p class="rv">We begin every project by mapping your operation before we build anything. That is how we make sure the system we deliver actually solves the right problem.</p>
-        <p class="rv">Every client gets personal attention from the people who actually build their system — and the technical depth to build almost anything.</p>
-      </div>
-      <div class="about-photo rv"><span class="about-photo-label">Team photo</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="tag">Common questions</div>
-    <h2 class="h2 split">Everything you want to <em>know.</em></h2>
-    <div class="faq-list rv">
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need to install new software?<span class="faq-icon">+</span></div><div class="faq-answer">No. We connect the tools you already use. Your team does nothing differently. The work simply starts happening automatically in the background.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if the AI gives a wrong answer?<span class="faq-icon">+</span></div><div class="faq-answer">Every system is tested with 100+ real scenarios before going live. If anything needs fixing after launch, you call us and we fix it the same day.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does my team need training?<span class="faq-icon">+</span></div><div class="faq-answer">No. The system runs in the background. Staff work exactly as they do today — they just have less to do. Nothing changes on their side.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I want to cancel?<span class="faq-icon">+</span></div><div class="faq-answer">Month-to-month. Cancel any time with 30 days notice. No penalties, no long contracts. We earn your business every month.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens in the process review?<span class="faq-icon">+</span></div><div class="faq-answer">We map your operation together: what your team does, in what order, where time is lost. You leave with a written summary of findings. It costs nothing.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do you work with my type of business?<span class="faq-icon">+</span></div><div class="faq-answer">Most likely yes. We are not tied to any one sector — if your team repeats a process every day, we can probably automate it. Request an expert and we will tell you honestly.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do you work outside Albania?<span class="faq-icon">+</span></div><div class="faq-answer">Yes. We serve clients across Europe and the USA. All work is done remotely. Location is never an issue.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap contact-grid">
+<section class="hero">
+  <div class="wrap hero-grid">
     <div>
-      <div class="tag">Get started</div>
-      <h2 class="split">Request your <em>free</em> business process review.</h2>
+      <p class="eyebrow rv"><b>Business transformation for growing companies</b></p>
+      <h1 class="split">The office is quiet. <em>Everything got done.</em></h1>
+      <p class="lead rv">We simplify how your business operates, organise its data and automate the work that shouldn't need your attention. AI where it adds value. Human control where it matters.</p>
+      <div class="ctas rv"><a href="#book" class="btn btn-fill">Book an introductory call <span class="ar">→</span></a><a href="map.html" class="btn btn-line">Explore the Modus Map</a></div>
+      <p class="support rv">Process first. Technology second.</p>
     </div>
-    <div class="contact-form rv">
-      <form id="contactFormFields" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitForm(event)">
-        <input type="hidden" name="form-name" value="contact">
-        <p style="position:absolute;left:-9999px"><label>Leave empty <input name="bot-field"></label></p>
-        <div style="display:flex;flex-direction:column;gap:26px;">
-          <div class="form-field"><label for="cf-name">Your name</label><input id="cf-name" type="text" name="name" placeholder="Full name" required></div>
-          <div class="form-field"><label for="cf-biz">Business type</label><input id="cf-biz" type="text" name="business" placeholder="Your business type" required></div>
-          <div class="form-field"><label for="cf-wa">WhatsApp number</label><input id="cf-wa" type="tel" name="whatsapp" placeholder="+1 234 567 8900" required></div>
-          <div class="form-field"><label for="cf-msg">What takes most of your team's time?</label><textarea id="cf-msg" name="message" placeholder="Describe the repetitive tasks your team handles daily..."></textarea></div>
-          <button class="btn btn-fill btn-submit" type="submit">Upload <span class="ar">↑</span></button>
-        </div>
-      </form>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">✅</div>
-        <h3 style="font-size:24px;margin-bottom:12px;">Message received.</h3>
-        <p style="opacity:0.75;">We will reach out within one business day to schedule your process review.</p>
+    <figure class="pmap rv" aria-label="Illustrative process map: unpaid invoice follow-up">
+      <div class="pmap-head"><b>Unpaid invoice follow-up</b><span class="demo-label">Illustrative process map</span></div>
+      <ol class="flow">
+        <li class="node auto"><span class="ic">1</span><div><b>Invoice passes its due date</b><small>Picked up from the accounting system</small></div><span class="who">Automated</span></li>
+        <li class="node auto"><span class="ic">2</span><div><b>Reminder sent to the client</b><small>Wording and timing agreed in advance</small></div><span class="who">Automated</span></li>
+        <li class="node auto"><span class="ic">3</span><div><b>Payment matched to the invoice</b><small>Account updated, no re-typing</small></div><span class="who">Automated</span></li>
+        <li class="node exc branch"><span class="ic">!</span><div><b>No reply after the second reminder</b><small>Added to the review list</small></div><span class="who">Exception</span></li>
+        <li class="node"><span class="ic">4</span><div><b>Personal follow-up</b><small>A person decides the next step</small></div><span class="who">Human</span></li>
+      </ol>
+      <div class="legend"><span><i class="auto"></i>Automated step</span><span><i class="human"></i>Human decision</span><span><i class="exc"></i>Exception</span></div>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="moments">
+  <div class="wrap">
+    <p class="eyebrow rv"><b>02</b> Recognisable moments</p>
+    <h2 class="h2 split" id="moments">What it looks like when work <em>runs itself.</em></h2>
+    <div class="scenes rv">
+      <div class="scene"><span class="when">Friday, 17:00.</span><p>The unpaid invoices have already been followed up.</p></div>
+      <div class="scene"><span class="when">Monday, 08:00.</span><p>The documents are checked. Exceptions are waiting for review.</p></div>
+      <div class="scene"><span class="when">August.</span><p>You're on holiday. The business keeps moving.</p></div>
+    </div>
+    <p class="scenes-note rv"><span class="demo-label">Illustrative scenarios — not customer results</span></p>
+    <div class="areas rv"><small>Where we work</small><span>Customer communication</span><span>Documents &amp; records</span><span>Sales &amp; orders</span><span>Finance &amp; admin</span><span>Operations &amp; scheduling</span></div>
+  </div>
+</section>
+
+<section id="method" aria-labelledby="method-h">
+  <div class="wrap">
+    <p class="eyebrow rv"><b>03</b> Our method</p>
+    <h2 class="h2 split" id="method-h">How much of your business still depends on someone <em>remembering to do something?</em></h2>
+    <p class="lead rv">We change how work runs, not just how it is automated.</p>
+    <ol class="stages rv" style="list-style:none">
+      <li class="stage"><span class="k">01</span><h3>Restructure</h3><p>Simplify the process and clarify responsibilities.</p><span class="tagline">Process</span></li>
+      <li class="stage"><span class="k">02</span><h3>Organise</h3><p>Connect reliable data and establish visibility over work.</p><span class="tagline">Data</span></li>
+      <li class="stage auto"><span class="k">03</span><h3>Automate</h3><p>Remove repetitive steps that follow predictable rules.</p><span class="tagline">Automation</span></li>
+      <li class="stage auto"><span class="k">04</span><h3>Add AI</h3><p>Use intelligent processing where it genuinely helps, with appropriate review.</p><span class="tagline">Only where it adds value</span></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="map-h">
+  <div class="wrap split2">
+    <div>
+      <p class="eyebrow rv"><b>04</b> The Modus Map</p>
+      <h2 class="h2 split" id="map-h">Start with a clear picture of your <em>business.</em></h2>
+      <p class="lead rv">The Modus Map is a paid diagnostic that shows how work runs today, where it gets stuck and what to improve first. You receive a practical roadmap, whether or not you choose us to implement it.</p>
+      <div class="ctas rv"><a href="map.html" class="btn btn-fill">Explore the Modus Map <span class="ar">→</span></a><a href="#book" class="btn btn-line">Book an introductory call</a></div>
+    </div>
+    <div class="panel rv">
+      <h3>What the Map covers</h3>
+      <ul class="ticks">
+        <li>Current-state process map and responsibilities</li>
+        <li>Bottlenecks, exceptions and operational risks</li>
+        <li>Overview of tools, data flows and information gaps</li>
+        <li>Prioritised opportunities to simplify, organise, automate or add AI</li>
+        <li>Improvement roadmap and recommended implementation options</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="gb-h">
+  <div class="wrap">
+    <p class="eyebrow rv"><b>05</b> Glass-box automation</p>
+    <h2 class="h2 split" id="gb-h">Automation you can understand and <em>control.</em></h2>
+    <div class="gb rv">
+      <div class="gb-flow">
+        <div class="pmap-head"><b>Document workflow</b><span class="demo-label">Illustrative</span></div>
+        <ol class="pipe" style="list-style:none">
+          <li class="node auto"><span class="ic">1</span><div><b>Intake</b><small>Document received by email or upload</small></div></li>
+          <li class="node auto"><span class="ic">2</span><div><b>Validation</b><small>Required fields and totals checked</small></div></li>
+          <li class="node"><span class="ic">3</span><div><b>Approval</b><small>A person signs off, following your rules</small></div></li>
+          <li class="node auto"><span class="ic">4</span><div><b>Delivery</b><small>Filed and passed to the right system</small></div></li>
+        </ol>
+        <div class="pipe-exc"><div class="node exc"><span class="ic">!</span><div><b>Exception</b><small>Missing or inconsistent data — returned with a note and logged</small></div></div></div>
+        <p class="rule">Example approval rule: amounts above a set limit always need a person's sign-off.</p>
+        <div class="legend" style="margin-top:16px"><span><i class="auto"></i>Automated step</span><span><i class="human"></i>Human decision</span><span><i class="exc"></i>Exception</span></div>
+      </div>
+      <div class="log" aria-label="Illustrative activity log">
+        <div class="pmap-head" style="margin:0"><b style="font-family:var(--display)">Activity log</b><span class="demo-label">Illustrative</span></div>
+        <ol>
+          <li><time>09:02</time><span class="a">Received supplier invoice 0412</span></li>
+          <li><time>09:02</time><span class="a">Validated: fields complete, totals match</span></li>
+          <li><time>09:03</time><span class="h">Waiting for approval — above limit</span></li>
+          <li><time>09:41</time><span class="h">Approved by finance lead</span></li>
+          <li><time>09:41</time><span class="a">Delivered to accounting system</span></li>
+          <li><time>10:15</time><span class="x">Exception: invoice 0413 missing order number — returned</span></li>
+        </ol>
       </div>
     </div>
+    <div class="gb-points rv"><p>See the workflow.</p><p>Define approval rules.</p><p>Review activity.</p><p>Know how changes are made.</p></div>
+    <p class="rule rv">Illustration only. The logging, approval and hosting arrangements for your workflows are confirmed with you for each project.</p>
+  </div>
+</section>
+
+<section aria-labelledby="demo-h">
+  <div class="wrap">
+    <p class="eyebrow rv"><b>06</b> See how it works</p>
+    <h2 class="h2 split" id="demo-h">From a complicated routine to a clear way of <em>working.</em></h2>
+    <p class="lead rv">Explore an illustrative process map and see how decisions, exceptions and responsibilities can be made visible.</p>
+    <div class="rv">
+      <div class="tabs" role="tablist" aria-label="Demonstrations">
+        <button class="tab" role="tab" id="t1" aria-selected="true" aria-controls="p1">Sample Map</button>
+        <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Sample dashboard</button>
+        <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Sample roadmap</button>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div class="tp-head"><b>Sample Map — order to payment</b><span class="demo-label">Demonstration · fictional company</span></div>
+          <div class="swim-wrap"><table class="swim">
+            <thead><tr><th scope="col">Role</th><th scope="col">Order received</th><th scope="col">Documents checked</th><th scope="col">Invoice issued</th><th scope="col">Payment followed up</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Sales</th><td><span>Order confirmed by email</span></td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">Operations</th><td><span class="pain">Details re-typed into a spreadsheet</span></td><td><span class="pain">Waiting for signed delivery note</span></td><td></td><td></td></tr>
+              <tr><th scope="row">Finance</th><td></td><td><span class="opp">Opportunity: match documents automatically</span></td><td><span>Invoice created manually</span></td><td><span class="pain">Reminders depend on someone remembering</span></td></tr>
+            </tbody>
+          </table></div>
+          <div class="legend" style="margin-top:16px"><span><i class="exc"></i>Friction point</span><span><i class="auto"></i>Improvement opportunity</span></div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <div class="tp-head"><b>Sample operations dashboard</b><span class="demo-label">Demonstration · sample data</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>48</b><small>Documents processed this week</small></div>
+          <div class="kpi"><b>5</b><small>Waiting for approval</small></div>
+          <div class="kpi"><b>3</b><small>Open exceptions</small></div>
+          <div class="kpi"><b>0</b><small>Follow-ups overdue</small></div>
+        </div>
+        <div class="queue">
+          <div class="hd"><span>Item</span><span>Owner</span><span>Status</span></div>
+          <div><span>Supplier invoice 0418</span><span>Finance lead</span><span class="st wait">Awaiting approval</span></div>
+          <div><span>Delivery note 2231</span><span>Operations</span><span class="st exc">Exception: signature missing</span></div>
+          <div><span>Client reminder batch</span><span>Automated</span><span class="st auto">Sent</span></div>
+        </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <div class="tp-head"><b>Sample improvement roadmap</b><span class="demo-label">Demonstration · fictional company</span></div>
+        <div class="road">
+          <div><h4>Now</h4><ul><li><em>Restructure</em>One owner for each customer order</li><li><em>Organise</em>One shared order register instead of three spreadsheets</li></ul></div>
+          <div><h4>Next</h4><ul><li class="auto"><em>Automate</em>Payment reminders and matching</li><li class="auto"><em>Automate</em>Document checks with an exception list</li></ul></div>
+          <div><h4>Later</h4><ul><li class="auto"><em>Add AI</em>Reading incoming supplier documents, with review</li><li><em>Organise</em>Weekly operations overview</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="cost-h">
+  <div class="wrap split2">
+    <div>
+      <p class="eyebrow rv"><b>07</b> Cost</p>
+      <h2 class="h2 split" id="cost-h">What is your routine really <em>costing you?</em></h2>
+    </div>
+    <div>
+      <p class="lead rv">Time, errors, delays and missed handoffs all add up. We work it out with you, using your numbers.</p>
+      <div class="areas rv" style="margin-top:28px"><span>Time</span><span>Errors</span><span>Delays</span><span>Missed handoffs</span></div>
+      <div class="ctas rv"><a href="#book" class="btn btn-line">Book an introductory call</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="trust-h">
+  <div class="wrap trust-grid">
+    <div>
+      <p class="eyebrow rv"><b>08</b> Data &amp; trust</p>
+      <h2 class="h2 split" id="trust-h">Know how your information is <em>handled.</em></h2>
+      <p class="lead rv">We explain the systems involved, where information is processed and how access and approvals are managed.</p>
+    </div>
+    <div class="rv">
+      <p class="eyebrow"><b>About</b></p>
+      <ul class="facts">
+        <li><span>Name</span>The Modus Studio</li>
+        <li><span>Based in</span>Tirana, Albania</li>
+        <li><span>Working with</span>Growing businesses across Europe. Enquiries from the US are welcome.</li>
+        <li><span>Approach</span>Process first. Technology second. AI only where it adds value.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow rv"><b>09</b> FAQ</p>
+    <h2 class="h2 split" id="faq-h">Common <em>questions.</em></h2>
+    <div class="faq rv"><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa0" id="fq0">What is the Modus Map?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa0" role="region" aria-labelledby="fq0"><p>A paid diagnostic that shows how work runs today, where it gets stuck and what to improve first. You receive a practical roadmap, whether or not you choose us to implement it.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa1" id="fq1">What happens in the introductory call?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><p>We talk through how your business runs today and what you would like to change, and explain how the Modus Map works, so you can decide whether it is the right next step.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa2" id="fq2">I am not sure what I need.<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><p>That is fine. Book an introductory call and tell us what is not working. We will help you identify a sensible starting point.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa3" id="fq3">Do we have to use you to implement the roadmap?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><p>No. The Modus Map is a standalone diagnostic. You receive the roadmap whether or not you choose us to implement it.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa4" id="fq4">Will we need new software?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><p>We work with the tools you already use wherever possible and introduce new ones only when necessary. You stay in control of what changes.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa5" id="fq5">Do we have to use AI?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><p>No. We restructure and organise first, automate steps that follow predictable rules, and add AI only where it genuinely helps, with appropriate review.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa6" id="fq6">Where is our data processed?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa6" role="region" aria-labelledby="fq6"><p>It depends on the systems involved in your project. Before anything goes live, we explain which systems and providers are used, where information is processed and how access and approvals are managed.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa7" id="fq7">Is our data used to train AI models?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa7" role="region" aria-labelledby="fq7"><p>Where an AI service is part of a workflow, we explain which provider is used and what its terms say about using data for training, so you can decide before it goes live.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa8" id="fq8">Do you use n8n or custom code?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa8" role="region" aria-labelledby="fq8"><p>Both, depending on the process. We use n8n where a visual, maintainable workflow fits, and custom code where a requirement calls for it. We explain the choice for each workflow.</p></div></div><div class="faq-item"><h3 style="font-size:inherit"><button class="faq-q" aria-expanded="false" aria-controls="fa9" id="fq9">Do you work outside Albania?<span class="ic" aria-hidden="true">+</span></button></h3><div class="faq-a" id="fa9" role="region" aria-labelledby="fq9"><p>Yes. We work remotely, with an initial focus on businesses across Europe. Enquiries from the US are welcome.</p></div></div></div>
+  </div>
+</section>
+
+<section id="book" aria-labelledby="close-h">
+  <div class="wrap close-grid">
+    <div>
+      <p class="eyebrow rv"><b>10</b> Let's talk</p>
+      <h2 class="h2 split" id="close-h">Built around your business. <em>Not the other way around.</em></h2>
+      <p class="lead rv">We work with the tools you already use wherever possible, introduce new ones only when necessary, and keep you in control of what changes.</p>
+    </div>
+    <form class="form rv" name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="enquiry">
+      <input type="hidden" name="interest" value="Introductory call">
+      <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="form-body">
+        <h3>Book an introductory call</h3>
+        <p class="intro">Tell us a little about your business. We will reply by email to arrange a time.</p>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="f-email">Business email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" required autocomplete="organization"></div>
+        <div class="field"><label for="f-challenge">Your operational challenge</label><textarea id="f-challenge" name="challenge" required placeholder="A few lines on what is slowing the business down"></textarea></div>
+        <div class="row2">
+          <div class="field"><label for="f-sector">Sector <small>(optional)</small></label><select id="f-sector" name="sector"><option value="">Select</option><option>Logistics</option><option>Construction</option><option>Wholesale &amp; distribution</option><option>Other</option></select></div>
+          <div class="field"><label for="f-source">How did you hear about us? <small>(optional)</small></label><select id="f-source" name="source"><option value="">Select</option><option>Search engine</option><option>LinkedIn</option><option>Recommendation</option><option>Other</option></select></div>
+        </div>
+        <div class="field"><label for="f-phone">Phone or WhatsApp <small>(optional)</small></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <button class="btn btn-fill" type="submit">Book an introductory call <span class="ar">→</span></button>
+        <p class="fine">We use these details only to reply to your enquiry. See our <a href="privacy.html">privacy notice</a>.</p>
+        <p class="form-err" role="alert">Something went wrong and your enquiry was not sent. Please try again in a moment.</p>
+      </div>
+      <div class="form-done" role="status">
+        <h3>Thank you.</h3>
+        <p class="lead">Your enquiry has been received. We will reply by email to arrange your introductory call.</p>
+      </div>
+    </form>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <ul class="footer-links">
-    <li><a href="#method">Methodology</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#branding">Branding</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <div class="footer-copy">Tirana, Albania · © 2026 Modus. All rights reserved.</div>
-  <div class="footer-logo" aria-label="Modus"><svg viewBox="0 0 411 66"><use href="#modus-logo"/></svg></div>
-</footer>
-
-<!-- REQUEST AN EXPERT (slide-in panel) -->
-<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
-  <div class="modal-glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" onclick="closeModal()">Close</button>
-    <h3 id="modalTitle">Request an Expert</h3>
-    <p>Tell us a little about your business and we'll map your operation — at no cost and no obligation.</p>
-    <form class="modal-form" id="modalForm" name="request-expert" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitModal(event)">
-      <input type="hidden" name="form-name" value="request-expert">
-      <p style="position:absolute;left:-9999px"><label>Leave empty <input name="bot-field"></label></p>
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="text" name="business" placeholder="Your business type" required>
-      <input type="tel" name="whatsapp" placeholder="WhatsApp number" required>
-      <textarea name="message" placeholder="What takes most of your team's time?"></textarea>
-      <button class="btn btn-upload" type="submit"><span class="upload-icon">↑</span> Upload</button>
-      <p id="modalThanks" style="display:none;margin-top:6px;font-weight:700;color:#74A3D1;">✅ Message received — we'll reach out within one business day.</p>
-    </form>
+  <div class="foot-top">
+    <p class="brandline">Less chasing.<br><em>More control.</em></p>
+    <div class="foot-col"><h4>Explore</h4><ul><li><a href="#method">Our Method</a></li><li><a href="map.html">The Modus Map</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="foot-col"><h4>The Modus Studio</h4><ul><li><a href="#book">Book an introductory call</a></li><li><a href="privacy.html">Privacy notice</a></li></ul></div>
   </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-(function(){
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const body = document.body;
-
-  /* ── Loader ── */
-  const loader = document.getElementById('loader'), pctEl = document.getElementById('loaderPct'), fill = document.getElementById('loaderFill');
-  let shown = 0, ready = false;
-  window.addEventListener('load', () => ready = true);
-  setTimeout(() => ready = true, 3500);
-  const t0 = performance.now();
-  (function tick(){
-    const target = ready ? 100 : Math.min(90, (performance.now() - t0) / 14);
-    shown += (target - shown) * (reduce ? 1 : 0.12);
-    if (shown > 99.5 && ready) shown = 100;
-    const v = Math.round(shown);
-    pctEl.textContent = v + '%';
-    fill.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
-    if (v < 100) return requestAnimationFrame(tick);
-    setTimeout(() => {
-      loader.classList.add('done'); body.classList.remove('locked');
-      document.querySelectorAll('#hero .split, #hero .rv').forEach((el, i) => setTimeout(() => el.classList.add('in'), 150 + i * 90));
-      setTimeout(() => loader.remove(), 1200);
-    }, reduce ? 0 : 250);
-  })();
-
-  /* ── Split headings into words for the slide-up reveal ── */
-  document.querySelectorAll('.split').forEach(el => {
-    const out = [];
-    el.childNodes.forEach(n => {
-      if (n.nodeType === 3) {
-        n.textContent.split(/(\s+)/).forEach(p => { if (!p) return; out.push(/^\s+$/.test(p) ? document.createTextNode(' ') : wrap(document.createTextNode(p))); });
-      } else { out.push(wrap(n.cloneNode(true))); }
-    });
-    el.textContent = ''; out.forEach(o => el.appendChild(o));
-    let k = 0; el.querySelectorAll('.w > span').forEach(s => s.style.transitionDelay = (k++ * 0.045) + 's');
-  });
-  function wrap(node){ const w = document.createElement('span'); w.className = 'w'; const i = document.createElement('span'); i.appendChild(node); w.appendChild(i); return w; }
-
-  /* ── Reveal on scroll ── */
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15, rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.split, .rv').forEach(el => { if (!el.closest('#hero')) io.observe(el); });
-
-  /* ── Scroll-scrubbed word highlight ── */
-  const scrubs = [...document.querySelectorAll('.scrub')].map(el => {
-    el.innerHTML = el.textContent.trim().split(/\s+/).map(w => '<span class="wd">' + w + '</span>').join(' ');
-    return { el, words: [...el.querySelectorAll('.wd')] };
-  });
-
-  /* ── Count-up stats ── */
-  const cio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return; cio.unobserve(e.target);
-    const el = e.target, to = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-    if (reduce) return; const s = performance.now();
-    (function f(t){ const k = Math.min(1, (t - s) / 1400), v = Math.round(to * (1 - Math.pow(1 - k, 3))); el.textContent = pre + v + suf; if (k < 1) requestAnimationFrame(f); })(s);
-  }), { threshold: .6 });
-  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
-
-  /* ── Menu ── */
-  const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
-  window.closeMenu = () => { body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded', false); menu.setAttribute('aria-hidden', true); };
-  menuBtn.addEventListener('click', () => { const o = body.classList.toggle('menu-open'); menuBtn.setAttribute('aria-expanded', o); menu.setAttribute('aria-hidden', !o); });
-  menu.querySelectorAll('nav a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeModal(); } });
-
-  /* ── Scroll state: navy world on Branding, rail, scrub ── */
-  const brand = document.getElementById('branding'), meta = document.querySelector('meta[name="theme-color"]');
-  const railBar = document.getElementById('railBar'), railNum = document.getElementById('railNum');
-  const railSecs = ['hero','method','services','branding','about','faq'].map(id => document.getElementById(id));
-  window.__scroll = { hero: 0, brand: 0 };
-  function onScroll(){
-    const vh = innerHeight, de = document.documentElement;
-    const r = brand.getBoundingClientRect();
-    const on = r.top < vh * .5 && r.bottom > vh * .5;
-    // values used by the 3D scene
-    window.__scroll.hero = Math.min(1, Math.max(0, scrollY / (vh * .9)));
-    const enter = Math.min(1, Math.max(0, (vh - r.top) / (vh * .8)));
-    const leave = Math.min(1, Math.max(0, (vh * .75 - r.bottom) / (vh * .4)));
-    window.__scroll.brand = enter * (1 - leave);
-    // rail
-    railBar.style.height = (scrollY / (de.scrollHeight - vh) * 100) + '%';
-    let n = 1; railSecs.forEach((s, i) => { if (s.getBoundingClientRect().top < vh * .5) n = i + 1; });
-    railNum.textContent = '0' + n;
-    // scrub words
-    scrubs.forEach(({ el, words }) => {
-      const b = el.getBoundingClientRect(); const p = Math.min(1, Math.max(0, (vh * .85 - b.top) / (b.height + vh * .35)));
-      const lit = Math.round(p * words.length); words.forEach((w, i) => w.classList.toggle('lit', i < lit));
-    });
-  }
-  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
-
-  /* ── FAQ ── */
-  window.toggleFaq = el => { const item = el.closest('.faq-item'), was = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open')); if (!was) item.classList.add('open'); };
-
-  /* ── Request-an-expert panel ── */
-  window.openModal = e => { e && e.preventDefault(); document.getElementById('modalOverlay').classList.add('open'); body.style.overflow = 'hidden'; };
-  window.closeModal = () => { document.getElementById('modalOverlay').classList.remove('open'); body.style.overflow = ''; };
-  window.handleOverlayClick = e => { if (e.target.id === 'modalOverlay') closeModal(); };
-
-  /* ── Forms → Netlify ── */
-  const send = f => fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() });
-  window.submitForm = e => { e.preventDefault(); const f = document.getElementById('contactFormFields');
-    send(f).then(r => { if (!r.ok) throw 0; f.style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); }).catch(() => alert('Sorry, something went wrong. Please try again.')); };
-  window.submitModal = e => { e.preventDefault(); const f = document.getElementById('modalForm');
-    send(f).then(r => { if (!r.ok) throw 0; f.querySelectorAll('input,textarea,button').forEach(x => x.style.display = 'none'); document.getElementById('modalThanks').style.display = 'block'; setTimeout(closeModal, 2500); }).catch(() => alert('Sorry, something went wrong. Please try again.')); };
-
-  /* ── Methodology: cards on a turning 3D wheel, driven by scroll ── */
-  (function(){
-    const sec = document.getElementById('method'), wheel = document.getElementById('wheel');
-    const cards = [...wheel.querySelectorAll('.step')], n = cards.length, step = 360 / n;
-    const dotsEl = document.getElementById('stepsDots'), prev = document.getElementById('stepsPrev'), next = document.getElementById('stepsNext');
-    let rot = 0, target = 0, idx = 0, R = 600;
-    const dots = cards.map((c, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Go to step ' + (i + 1)); b.onclick = () => goTo(i); dotsEl.appendChild(b); return b; });
-    function range(){ const top = sec.getBoundingClientRect().top + scrollY; return { top, len: sec.offsetHeight - innerHeight }; }
-    function goTo(i){ const r = range(); scrollTo({ top: r.top + r.len * (i / (n - 1)) + 2, behavior: reduce ? 'auto' : 'smooth' }); }
-    prev.onclick = () => goTo(Math.max(0, idx - 1)); next.onclick = () => goTo(Math.min(n - 1, idx + 1));
-    function measure(){ const w = cards[0].offsetWidth; R = Math.max(w * .78, Math.min(innerWidth * .52, w * 1.05)); }
-    function onScroll(){
-      const r = range(), p = Math.min(1, Math.max(0, (scrollY - r.top) / r.len));
-      // hold each card at the front, then turn quickly to the next
-      const raw = p * (n - 1), k = Math.min(n - 2, Math.floor(raw)), f = raw - k;
-      const e = Math.min(1, Math.max(0, (f - .22) / .56)), sm = e * e * (3 - 2 * e);
-      target = (p >= 1 ? n - 1 : k + sm) * step;
-      const ni = Math.round(target / step); if (ni !== idx) { idx = ni; }
-      dots.forEach((d, i) => d.classList.toggle('on', i === idx)); prev.disabled = idx === 0; next.disabled = idx === n - 1;
-    }
-    function render(){
-      rot += (target - rot) * (reduce ? 1 : .09);
-      const w = cards[0].offsetWidth, h = Math.max(...cards.map(c => c.offsetHeight));
-      cards.forEach((c, i) => {
-        const a = (i * step - rot) * Math.PI / 180;
-        const x = Math.sin(a) * R, z = (Math.cos(a) - 1) * R;
-        const facing = (Math.cos(a) + 1) / 2;            // 1 front, 0 back
-        c.style.transform = `translate3d(${x - w / 2}px, ${-h / 2}px, ${z}px) rotateY(${i * step - rot}deg)`;
-        c.style.opacity = (.12 + .88 * Math.pow(facing, 2.2)).toFixed(3);
-        c.style.zIndex = Math.round(facing * 100);
-        c.style.pointerEvents = facing > .9 ? 'auto' : 'none';
-      });
-      requestAnimationFrame(render);
-    }
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', () => { measure(); onScroll(); });
-    measure(); onScroll(); rot = target; render();
-  })();
-
-  /* ── 3D: a network of cubes ──
-     hero: cubes form a linked sphere (your process, connected)
-     scroll: they scatter into the background
-     branding: they regroup into a ring and turn navy                 */
-  if (!window.THREE) return;
-  const canvas = document.getElementById('stage');
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (err) { return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 200);
-  camera.position.set(0, 0, 30);
-  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-  const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(6, 10, 12); scene.add(key);
-  const rim = new THREE.PointLight(0x74A3D1, 1.4, 60); rim.position.set(-10, -6, 10); scene.add(rim);
-
-  const isMobile = innerWidth < 760;
-  const N = isMobile ? 90 : 150;
-  const geo = new THREE.BoxGeometry(1, 1, 1);
-  const mat = new THREE.MeshStandardMaterial({ roughness: .35, metalness: .15, transparent: true, opacity: 1 });
-  const mesh = new THREE.InstancedMesh(geo, mat, N);
-  mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
-  scene.add(mesh);
-
-  const autoCols = [0x74A3D1, 0x4C80AF, 0x32668E].map(c => new THREE.Color(c));
-  const brandCols = [0x0A3957, 0x04243D, 0x0A3957].map(c => new THREE.Color(c));
-  const lightBlue = new THREE.Color(0x74A3D1);
-  const cubes = [];
-  const golden = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < N; i++) {
-    // A: fibonacci sphere (hero network)
-    const y = 1 - (i / (N - 1)) * 2, rr = Math.sqrt(1 - y * y), th = golden * i, R = 6.2;
-    const A = new THREE.Vector3(Math.cos(th) * rr * R, y * R, Math.sin(th) * rr * R);
-    // B: scattered field
-    // keep the scattered field near the screen edges so it never sits behind text
-    const side = Math.random() < .5 ? -1 : 1, edge = isMobile ? 9 : 15;
-    const B = new THREE.Vector3(side * (edge + Math.random() * 12), (Math.random() - .5) * 30, -8 - Math.random() * 22);
-    // C: ring (branding)
-    const ang = (i / N) * Math.PI * 2, rad = 8.5 + (Math.random() - .5) * 1.6;
-    const C = new THREE.Vector3(Math.cos(ang) * rad, Math.sin(ang) * rad, (Math.random() - .5) * 1.8);
-    const ci = i % 3;
-    cubes.push({ A, B, C, pos: A.clone(), rot: new THREE.Euler(Math.random() * 6, Math.random() * 6, 0), spin: (Math.random() - .5) * .02,
-      s: .35 + Math.random() * .5, cA: autoCols[ci], cB: (Math.random() < .25 ? lightBlue : brandCols[ci]), col: new THREE.Color() });
-  }
-  // links between neighbours in the sphere
-  const pairs = [];
-  for (let i = 0; i < N; i++) {
-    const d = cubes.map((c, j) => [j, c.A.distanceToSquared(cubes[i].A)]).filter(x => x[0] > i).sort((a, b) => a[1] - b[1]).slice(0, 2);
-    d.forEach(([j]) => pairs.push(i, j));
-  }
-  const lineGeo = new THREE.BufferGeometry();
-  const linePos = new Float32Array(pairs.length * 3);
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x4C80AF, transparent: true, opacity: .45 });
-  const lines = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(lines);
-
-  const group = new THREE.Group(); scene.remove(mesh); scene.remove(lines); group.add(mesh); group.add(lines); scene.add(group);
-  const dummy = new THREE.Object3D(), tmp = new THREE.Vector3();
-  let mx = 0, my = 0, sh = 0, sb = 0, W = 0, H = 0;
-  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
-  function resize(){ W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); }
-  addEventListener('resize', resize); resize();
-
-  const clock = new THREE.Clock();
-  function frame(){
-    const t = clock.getElapsedTime();
-    sh += (window.__scroll.hero - sh) * .06;
-    sb += (window.__scroll.brand - sb) * .05;
-    const ease = x => x * x * (3 - 2 * x);
-    const h = ease(sh), b = ease(sb);
-    // cluster sits right of the headline on desktop, top-right on mobile
-    const desk = W > 960;
-    const heroX = desk ? 12 : 5.2, heroY = desk ? -.5 : 7.6, heroS = desk ? .82 : .5;
-    const brandX = desk ? 11 : 4.5, brandY = desk ? 0 : -6.5, brandS = desk ? .8 : .5;
-    const px = heroX * (1 - h), py = heroY * (1 - h), ps = heroS + (1 - heroS) * h;
-    group.position.set(px + (brandX - px) * b, py + (brandY - py) * b, desk ? 0 : -4 * b);
-    const gs = ps + (brandS - ps) * b; group.scale.set(gs, gs, gs);
-    group.rotation.y = t * .12 + mx * .5;
-    group.rotation.x = my * .3 + b * .35;
-    for (let i = 0; i < N; i++) {
-      const c = cubes[i];
-      tmp.copy(c.A).lerp(c.B, h);           // hero → scattered
-      tmp.lerp(c.C, b);                      // → ring on branding
-      tmp.y += Math.sin(t * .8 + i) * .12 * (1 - b * .5);
-      c.pos.lerp(tmp, .12);
-      c.rot.x += c.spin; c.rot.y += c.spin * 1.3;
-      dummy.position.copy(c.pos); dummy.rotation.copy(c.rot);
-      const s = c.s * (1 + h * .6 * (1 - b)); dummy.scale.set(s, s, s);
-      dummy.updateMatrix(); mesh.setMatrixAt(i, dummy.matrix);
-      c.col.copy(c.cA).lerp(c.cB, b); mesh.setColorAt(i, c.col);
-    }
-    mesh.instanceMatrix.needsUpdate = true; if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
-    // scattered cubes recede so text stays readable
-    const heroOp = desk ? 1 : .6;
-    const travel = 1 - 2.6 * b * (1 - b);   // fade while cubes move between shapes
-    mat.opacity = Math.max(.12, ((heroOp + (.32 - heroOp) * h) * (1 - b) + (desk ? .95 : .5) * b) * travel);
-    mat.emissive.copy(lightBlue).multiplyScalar(b * .18);
-    for (let p = 0; p < pairs.length; p++) { const v = cubes[pairs[p]].pos; linePos[p * 3] = v.x; linePos[p * 3 + 1] = v.y; linePos[p * 3 + 2] = v.z; }
-    lineGeo.attributes.position.needsUpdate = true;
-    lineMat.opacity = .5 * (1 - h) * (1 - b);
-    renderer.render(scene, camera);
-    if (!reduce) requestAnimationFrame(frame);
-  }
-  frame();
-})();
-</script>
+  <p class="also"><b>Also available</b>Branding · UI/UX design · Strategy — ask us about these in your introductory call.</p>
+  <div class="foot-bottom">
+    <a href="index.html" class="foot-logo" aria-label="The Modus Studio"><svg viewBox="0 0 411 66" aria-hidden="true"><use href="#modus-logo"/></svg></a>
+    <p>© 2026 The Modus Studio · Tirana, Albania · Working with businesses across Europe</p>
+  </div>
+</footer>
+<script src="site.js" defer></script>
 </body>
 </html>
