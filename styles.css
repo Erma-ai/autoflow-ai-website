@@ -460,3 +460,7 @@ a.card{display:block;color:inherit}
   .svc .n{grid-column:1 / -1;font-size:28px}
   .svc .go{width:46px;height:46px}
 }
+
+/* hero text sits left on wide screens, away from the ball */
+.hero .wrap{max-width:none;padding-left:max(40px,7vw);padding-right:40px}
+@media (max-width:960px){.hero .wrap{padding-left:24px;padding-right:24px}}

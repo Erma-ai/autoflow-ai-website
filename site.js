@@ -183,7 +183,9 @@
     const spin = scrollY * .0012;        // turns only when the page scrolls
     if (shape === 'scatter') { group.position.set(0, -scrollY * .004, 0); group.scale.setScalar(1); group.rotation.set(0, 0, 0); }
     else {
-      const hx = desk ? 13.2 : 5.2, hy = desk ? -.5 : 7.6, hs = desk ? .82 : .5;
+      // keep the ball near the right edge on any screen width, clear of the headline
+      const halfW = Math.tan(20 * Math.PI / 180) * 30 * (W / H);
+      const hx = desk ? Math.max(13.2, halfW - 6.6) : 5.2, hy = desk ? -.5 : 7.6, hs = desk ? .82 : .5;
       group.position.set(hx * (1 - h), hy * (1 - h), 0);
       group.scale.setScalar(hs + (1 - hs) * h);
       group.rotation.y = -1.1 * (1 - ease(k)) + .35 + spin;
@@ -202,7 +204,7 @@
     lineGeo.attributes.position.needsUpdate = true;
     lineMat.opacity = shape === 'scatter' ? 0 : .45 * Math.max(0, (k - .75) / .25) * (1 - h);
     const base = shape === 'scatter' ? .45 : (desk ? 1 : .6);
-    mat.opacity = base + (.3 - base) * h;
+    mat.opacity = shape === 'scatter' ? base : base * Math.pow(1 - h, 2.5);   // pieces fade out completely as you scroll, so nothing floats over the content
     renderer.render(scene, camera);
     return k < 1 || Math.abs(target() - sc) > .001;   // keep animating only while something is changing
   }
