@@ -481,3 +481,15 @@ a.card{display:block;color:inherit}
 @keyframes orb-swirl{to{transform:rotate(360deg)}}
 @keyframes orb-pulse{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.1);opacity:.95}}
 @media (prefers-reduced-motion:reduce){.orb::before,.orb i{animation:none!important}}
+
+/* Section colour plan — Modus "Office is quiet" */
+main > section{background:var(--bg)}
+.s-black{--bg:#010E20}
+.s-card{--bg:#0A3957;--line:rgba(116,163,209,.25)}
+.s-deep{--bg:#32668E;--ink:#FFFFFF;--text:#FFFFFF;--muted:rgba(255,255,255,.85);--accent:#DAF9FF;--fill:#010E20;--fill-ink:#EAF3FB;--num:#DAF9FF;--line:rgba(255,255,255,.25);--card:rgba(1,14,32,.25)}
+.s-light{--bg:#74A3D1;--ink:#010E20;--text:#010E20;--muted:#010E20;--accent:#04243D;--fill:#04243D;--fill-ink:#EAF3FB;--btn-hover:#010E20;--num:#04243D;--line:rgba(1,14,32,.25);--card:rgba(255,255,255,.18)}
+.s-light .btn-line{color:#010E20;box-shadow:inset 0 0 0 2px #010E20}
+.s-light,.s-deep,.s-black,.s-card{color:var(--text)}
+footer{background:#010E20}
+/* keep the hero see-through so the cube ball behind it stays visible (same #04243D as the page) */
+main > section.hero{background:transparent}
